@@ -1,0 +1,51 @@
+.step-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.step-container > * {
+  width: 100%;
+}
+
+.step-subtitle {
+  color: #888;
+  font-size: 14px;
+}
+
+.check-container {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 40px;
+  font-size: 14px;
+}
+
+.check-container > mat-checkbox {
+  margin-right: 15px;
+}
+
+.check-container > .mat-input-element {
+  width: auto !important;
+}
+
+.indent-container {
+  margin-left: 25px;
+}
+
+.radio-container > mat-radio-group {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.radio-container mat-radio-button {
+  margin: 5px;
+}
+
+h2 {
+  color: #888;
+  font-size: 12px;
+  font-weight: normal;
+}
+hr {
+  color: #888;
+}
