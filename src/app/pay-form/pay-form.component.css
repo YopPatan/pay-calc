@@ -10,6 +10,7 @@
 .step-subtitle {
   color: #888;
   font-size: 14px;
+  margin-bottom: 25px;
 }
 
 .check-container {
@@ -32,20 +33,46 @@
   margin-left: 25px;
 }
 
-.radio-container > mat-radio-group {
+.field-container{
+  margin-bottom: 25px;
+}
+
+.field-container > mat-radio-group {
   display: inline-flex;
   flex-direction: column;
 }
 
-.radio-container mat-radio-button {
+.field-container mat-radio-button {
   margin: 5px;
 }
 
-h2 {
+.field-container input {
+  margin: 4px 0px 4px 0px;
+}
+
+.field-container h2 {
   color: #888;
   font-size: 12px;
   font-weight: normal;
+  margin: 4px 0px 4px 0px;
 }
-hr {
+.field-container hr {
+  background: #888;
+  margin: 2px 0px 2px 0px;
+  border: 0px;
+  height: 1px;
+}
+
+.field-container small {
   color: #888;
 }
+
+.btn-container {
+  margin-top: 25px;
+}
+
+.btn-container > button {
+  margin-right: 15px;
+}
+
+

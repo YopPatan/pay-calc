@@ -28,7 +28,7 @@
           <mat-hint align="start">Si trabajas en Support Center, selecciónalo entre las opciones.</mat-hint>
         </mat-form-field>
       </div>
-      <div>
+      <div class="btn-container">
         <button mat-raised-button matStepperNext>Siguiente</button>
       </div>
     </form>
@@ -62,7 +62,7 @@
           <mat-hint align="start">Cantidad de horas trabajadas en feriados.</mat-hint>
         </mat-form-field>
       </div>
-      <div>
+      <div class="btn-container">
         <button mat-raised-button matStepperPrevious>Atras</button>
         <button mat-raised-button matStepperNext>Siguiente</button>
       </div>
@@ -139,7 +139,7 @@
           <input matInput placeholder="Horas">
         </section>
       </div>
-      <div>
+      <div class="btn-container">
         <button mat-raised-button matStepperPrevious>Atras</button>
         <button mat-raised-button matStepperNext>Siguiente</button>
       </div>
@@ -178,7 +178,7 @@
           <input matInput placeholder="Monto">
         </section>
       </div>
-      <div>
+      <div class="btn-container">
         <button mat-raised-button matStepperPrevious>Atras</button>
         <button mat-raised-button matStepperNext>Siguiente</button>
       </div>
@@ -189,47 +189,47 @@
       <ng-template matStepLabel>Descuentos</ng-template>
       <div class="step-subtitle">Nuestra liquidación incluye también una serie de descuentos legales y electivos.</div>
       <div class="step-container">
-        <section class="radio-container">
+        <section class="field-container">
           <h2>¿A qué AFP estás afiliado?</h2>
           <mat-radio-group>
             <mat-radio-button value="1">Option 1</mat-radio-button>
             <mat-radio-button value="2">Option 2</mat-radio-button>
           </mat-radio-group>
-          <hr/>
+          <hr noshade/>
         </section>
-        <section class="radio-container">
+        <section class="field-container">
           <h2>¿Tienes préstamos con la Caja de Compensación?</h2>
           <input matInput placeholder="Prestamo 1">
           <input matInput placeholder="Prestamo 2">
           <input matInput placeholder="Prestamo 3">
-          <hr/>
+          <hr noshade/>
         </section>
-        <section class="radio-container">
+        <section class="field-container">
           <h2>¿Tienes algún descuento por planilla?</h2>
           <input matInput placeholder="Total Descuento 1">
           <input matInput placeholder="Total Descuento 2">
           <input matInput placeholder="Total Descuento 3">
-          <hr/>
+          <hr noshade/>
         </section>
         <mat-form-field>
           <input matInput placeholder="¿Tienes el seguro médico Vida Security? ">
           <mat-hint align="start">Ingresa el total de la cuota.</mat-hint>
         </mat-form-field>
-        <section class="radio-container">
+        <section class="field-container">
           <h2>¿Estás sindicalizado?</h2>
           <mat-radio-group>
             <mat-radio-button value="1">Option 1</mat-radio-button>
             <mat-radio-button value="2">Option 2</mat-radio-button>
           </mat-radio-group>
-          <hr/>
+          <hr noshade/>
           <small>Si pone sí, debe consultarse por Cuota extraordinaria, debiendo escribirse el monto manualmente.</small>
         </section>
-        <section class="radio-container">
+        <section class="field-container">
           <h2>¿Tienes algúna cuota sindical extraordinaria?</h2>
           <input matInput placeholder="Total Cuota Extraordinaria 1">
           <input matInput placeholder="Total Cuota Extraordinaria 2">
           <input matInput placeholder="Total Cuota Extraordinaria 3">
-          <hr/>
+          <hr noshade/>
           <small>Por ejemplo, algún préstamo, uso de gimnasio, entradas al cine, servicio oftalmológicos o dentales, etc.</small>
         </section>
         <mat-form-field>
@@ -237,7 +237,7 @@
           <mat-hint align="start">Si tienes un descuento de horas por retirarte antes, por llegar después del inicio de turno, o por un permiso especial sin remuneración, pon acá la cantidad de horas.</mat-hint>
         </mat-form-field>
       </div>
-      <div>
+      <div class="btn-container">
         <button mat-raised-button matStepperPrevious>Atras</button>
         <button mat-raised-button matStepperNext>Siguiente</button>
       </div>
