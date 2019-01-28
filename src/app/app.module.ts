@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { PayFormComponent } from './pay-form/pay-form.component';
 
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule, MatButtonModule, MatSelectModule, MatCheckboxModule, MatRadioModule, MatStepperModule } from '@angular/material';
 
@@ -16,6 +17,7 @@ import { MatInputModule, MatButtonModule, MatSelectModule, MatCheckboxModule, Ma
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatInputModule,
     MatButtonModule,

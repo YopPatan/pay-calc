@@ -4,7 +4,7 @@
       <ng-template matStepLabel>Información del Cargo</ng-template>
       <div class="step-container">
         <mat-form-field>
-          <mat-select placeholder="Cargo">
+          <mat-select placeholder="Cargo" [(value)]="payOption.cargo" name="cargo">
             <mat-option value="option1">Option 1</mat-option>
             <mat-option value="option2">Option 2</mat-option>
             <mat-option value="option3">Option 3</mat-option>
@@ -12,7 +12,7 @@
           <mat-hint align="start">Si tu cargo es Partner Coffee, selecciona Barista. Si trabajas en Support Center, selecciona la opción "Otro".</mat-hint>
         </mat-form-field>
         <mat-form-field>
-          <mat-select placeholder="Jornada laboral">
+          <mat-select placeholder="Jornada laboral" [(value)]="payOption.jornada" name="jornada">
             <mat-option value="option1">Option 1</mat-option>
             <mat-option value="option2">Option 2</mat-option>
             <mat-option value="option3">Option 3</mat-option>
@@ -20,7 +20,7 @@
           <mat-hint align="start">Esta es la cantidad de horas que realizas por semana, sin considerar horas extraordinarias. Si tu cargo no contempla límite de jornada (Art. 22), por favor selecciona "45".</mat-hint>
         </mat-form-field>
         <mat-form-field>
-          <mat-select placeholder="Tienda">
+          <mat-select placeholder="Tienda" [(value)]="payOption.tienda" name="tienda">
             <mat-option value="option1">Option 1</mat-option>
             <mat-option value="option2">Option 2</mat-option>
             <mat-option value="option3">Option 3</mat-option>
@@ -38,27 +38,27 @@
       <ng-template matStepLabel>Información de la Remuneración Mensual</ng-template>
       <div class="step-container">
         <mat-form-field>
-          <input matInput placeholder="Sueldo base (v.)">
+          <input matInput placeholder="Sueldo base (v.)" [(ngModel)]="payOption.sueldo" name="sueldo">
           <mat-hint align="start">El sueldo base es un valor objetivo que aparece sin descuentos en la segunda columna de la liquidación, bajo la glosa (v.o).</mat-hint>
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Ausencias justificadas">
+          <input matInput placeholder="Ausencias justificadas" [(ngModel)]="payOption.ausenciasJustificadad" name="ausencias-justificadas">
           <mat-hint align="start">Si tuviste una licencia o certificados médicos presentados al empleador, por favor escribe cuántos días fueron.</mat-hint>
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Ausencias injustificadas">
+          <input matInput placeholder="Ausencias injustificadas" [(ngModel)]="payOption.ausenciasInjustificadad" name="ausencias-injustificadas">
           <mat-hint align="start">Si tuviste ausencias sin justificación, por favor escribe cuántos días acá.</mat-hint>
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Horas extraordinarias">
+          <input matInput placeholder="Horas extraordinarias" [(ngModel)]="payOption.horasExtras" name="horas-extras">
           <mat-hint align="start">Cantidad de horas trabajadas sobre la jornada semanal durante el mes.</mat-hint>
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Recargo Domingos">
+          <input matInput placeholder="Recargo Domingos" [(ngModel)]="payOption.recargoDomingos" name="recargo-domingos">
           <mat-hint align="start">Cantidad de horas trabajadas los domingos.</mat-hint>
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Recargo Feriados">
+          <input matInput placeholder="Recargo Feriados" [(ngModel)]="payOption.recargoFeriados" name="recargo-feriados">
           <mat-hint align="start">Cantidad de horas trabajadas en feriados.</mat-hint>
         </mat-form-field>
       </div>
@@ -74,69 +74,69 @@
       <div class="step-subtitle">Los siguientes son bonos sujetos a descuentos legales. No se consideran las asignaciones (como colación y movilización) en este item.</div>
       <div class="step-container">
         <section class="check-container">
-          <mat-checkbox>Bono Noche</mat-checkbox>
+          <mat-checkbox [(ngModel)]="payOption.bonoNoche" name="bono-noche">Bono Noche</mat-checkbox>
         </section>
         <section class="check-container">
-          <mat-checkbox>Bono Servicio</mat-checkbox>
+          <mat-checkbox [(ngModel)]="payOption.bonoServicio" name="bono-servicio">Bono Servicio</mat-checkbox>
         </section>
         <section class="check-container indent-container">
-          <mat-checkbox>50%</mat-checkbox>
+          <mat-checkbox [(ngModel)]="payOption.bonoServicio50" name="bono-noche-50">50%</mat-checkbox>
         </section>
         <section class="check-container indent-container">
-          <mat-checkbox>100%</mat-checkbox>
+          <mat-checkbox [(ngModel)]="payOption.bonoServicio100" name="bono-noche-100">100%</mat-checkbox>
         </section>
         <section class="check-container">
-          <mat-checkbox>Aguinaldo de Fiestas Patrias</mat-checkbox>
+          <mat-checkbox [(ngModel)]="payOption.bonoFiestasPatrias" name="bono-fiestas-patrias">Aguinaldo de Fiestas Patrias</mat-checkbox>
         </section>
         <section class="check-container">
-          <mat-checkbox>Bono Operaciones</mat-checkbox>
+          <mat-checkbox [(ngModel)]="payOption.bonoOperaciones" name="bono-operaciones">Bono Operaciones</mat-checkbox>
         </section>
         <section class="check-container">
-          <mat-checkbox>Bono Reserve</mat-checkbox>
+          <mat-checkbox [(ngModel)]="payOption.bonoReserve" name="bono-reserve">Bono Reserve</mat-checkbox>
         </section>
         <section class="check-container">
-          <mat-checkbox>Tienda Requisitos Especiales</mat-checkbox>
+          <mat-checkbox [(ngModel)]="payOption.bonoRequisitosEspeciales" name="bono-requisitos-especiales">Tienda Requisitos Especiales</mat-checkbox>
         </section>
         <section class="check-container">
-          <mat-checkbox>Bono Alto Flujo</mat-checkbox>
+          <mat-checkbox [(ngModel)]="payOption.bonoAltoFlujo" name="bono-alto-flujo">Bono Alto Flujo</mat-checkbox>
         </section>
         <section class="check-container">
-          <mat-checkbox>Bono Referidos</mat-checkbox>
+          <mat-checkbox [(ngModel)]="payOption.bonoReferidos" name="bono-referidos">Bono Referidos</mat-checkbox>
         </section>
         <section class="check-container indent-container">
-          <mat-checkbox>3 y 5 meses:</mat-checkbox>
-          <input matInput placeholder="Cantidad">
+          <mat-checkbox [(ngModel)]="payOption.bonoReferidos3" name="bono-referidos-3">3 y 5 meses:</mat-checkbox>
+          <input matInput placeholder="Cantidad" [(ngModel)]="payOption.bonoReferidos3Cantidad" name="bono-referidos-3-cantidad">
         </section>
         <section class="check-container indent-container">
-          <mat-checkbox>9 meses:</mat-checkbox>
-          <input matInput placeholder="Cantidad">
+          <mat-checkbox [(ngModel)]="payOption.bonoReferidos9" name="bono-referidos-9">9 meses:</mat-checkbox>
+          <input matInput placeholder="Cantidad" [(ngModel)]="payOption.bonoReferidos9Cantidad" name="bono-referidos-9-cantidad">
         </section>
         <section class="check-container">
-          <mat-checkbox>Bono Partner</mat-checkbox>
+          <mat-checkbox [(ngModel)]="payOption.bonoPartner" name="bono-partner">Bono Partner</mat-checkbox>
         </section>
         <section class="check-container indent-container">
-          <mat-checkbox>50% año anterior:</mat-checkbox>
-          <input matInput placeholder="Monto">
+          <mat-checkbox [(ngModel)]="payOption.bonoPartnerAnnoAnterior" name="bono-partner-anno-anterior">50% año anterior:</mat-checkbox>
+          <input matInput placeholder="Monto" [(ngModel)]="payOption.bonoPartnerAnnoAnteriorMonto" name="bono-partner-anno-anterior-monto">
         </section>
         <section class="check-container indent-container">
-          <mat-checkbox>50% año actual:</mat-checkbox>
-          <input matInput placeholder="Monto">
+          <mat-checkbox [(ngModel)]="payOption.bonoPartnerAnnoActual" name="bono-partner-anno-actual">50% año actual:</mat-checkbox>
+          <input matInput placeholder="Monto" [(ngModel)]="payOption.bonoPartnerAnnoActualMonto" name="bono-partner-anno-actual-monto">
         </section>
         <section class="check-container">
-          <mat-checkbox>Otro 1:</mat-checkbox>
-          <input matInput placeholder="Monto">
+          <mat-checkbox [(ngModel)]="payOption.bonoOtro1" name="bono-otro-1">Otro 1:</mat-checkbox>
+          <input matInput placeholder="Monto" [(ngModel)]="payOption.bonoOtro1Monto" name="bono-otro-1-monto">
         </section>
         <section class="check-container">
-          <mat-checkbox>Otro 2:</mat-checkbox>
-          <input matInput placeholder="Monto">
+          <mat-checkbox [(ngModel)]="payOption.bonoOtro2" name="bono-otro-2">Otro 2:</mat-checkbox>
+          <input matInput placeholder="Monto" [(ngModel)]="payOption.bonoOtro2Monto" name="bono-otro-2-monto">
         </section>
         <section class="check-container">
-          <mat-checkbox>Otro 3:</mat-checkbox>
-          <input matInput placeholder="Monto">
+          <mat-checkbox [(ngModel)]="payOption.bonoOtro3" name="bono-otro-3">Otro 3:</mat-checkbox>
+          <input matInput placeholder="Monto" [(ngModel)]="payOption.bonoOtro3Monto" name="bono-otro-3-monto">
         </section>
         <section class="check-container">
-          <mat-checkbox>Bono Suplente:</mat-checkbox>
-          <input matInput placeholder="Horas">
+          <mat-checkbox [(ngModel)]="payOption.bonoSuplente" name="bono-suplente">Bono Suplente:</mat-checkbox>
+          <input matInput placeholder="Horas" [(ngModel)]="payOption.bonoSuplenteMonto" name="bono-suplente-monto">
         </section>
       </div>
       <div class="btn-container">
@@ -147,35 +147,35 @@
   </mat-step>
   <mat-step>
     <form>
-      <ng-template matStepLabel>Bonos Imponibles</ng-template>
+      <ng-template matStepLabel>Asignaciones No Imponibles</ng-template>
       <div class="step-subtitle">Los siguientes son bonos sujetos a descuentos legales. No se consideran las asignaciones (como colación y movilización) en este item.</div>
       <div class="step-container">
         <section class="check-container">
-          <mat-checkbox>Colación</mat-checkbox>
+          <mat-checkbox [(ngModel)]="payOption.bonoColacion" name="bono-colacion">Colación</mat-checkbox>
         </section>
         <section class="check-container">
-          <mat-checkbox>Movilización</mat-checkbox>
+          <mat-checkbox [(ngModel)]="payOption.bonoMovilizacion" name="bono-movilizacion">Movilización</mat-checkbox>
         </section>
         <section class="check-container">
-          <mat-checkbox>Cargas Familiares:</mat-checkbox>
-          <input matInput placeholder="Cantidad" maxlength="10" size="10">
-          <input matInput placeholder="Monto" maxlength="10" size="10">
+          <mat-checkbox [(ngModel)]="payOption.asignacionCargas" name="bono-asignacion-cargas">Cargas Familiares:</mat-checkbox>
+          <input matInput placeholder="Cantidad" maxlength="10" size="10" [(ngModel)]="payOption.asignacionCargasCantidad" name="asignacion-cargas-cantidad">
+          <input matInput placeholder="Monto" maxlength="10" size="10" [(ngModel)]="payOption.asignacionCargasMonto" name="asignacion-cargas-monto">
         </section>
         <section class="check-container">
-          <mat-checkbox>Asignación Especial de Transporte</mat-checkbox>
-          <input matInput placeholder="Monto">
+          <mat-checkbox [(ngModel)]="payOption.asignacionTransporte" name="asignacion-transporte">Asignación Especial de Transporte</mat-checkbox>
+          <input matInput placeholder="Monto" [(ngModel)]="payOption.asignacionTransporteMonto" name="asignacion-transporte-monto">
         </section>
         <mat-hint align="start">(mamás, trabajadores/as de Aeropuerto, etc).</mat-hint>
         <section class="check-container">
-          <mat-checkbox>Asignación Sala Cuna (cuidadora)</mat-checkbox>
+          <mat-checkbox [(ngModel)]="payOption.asignacionSalaCuna" name="asignacion-sala-cuna">Asignación Sala Cuna (cuidadora)</mat-checkbox>
         </section>
         <section class="check-container">
-          <mat-checkbox>Otra Asignación 1</mat-checkbox>
-          <input matInput placeholder="Monto">
+          <mat-checkbox [(ngModel)]="payOption.asignacionOtro1" name="asignacion-otro-1">Otra Asignación 1</mat-checkbox>
+          <input matInput placeholder="Monto" [(ngModel)]="payOption.asignacionOtro1Monto" name="asignacion-otro-1-monto">
         </section>
         <section class="check-container">
-          <mat-checkbox>Otra Asignación 2</mat-checkbox>
-          <input matInput placeholder="Monto">
+          <mat-checkbox [(ngModel)]="payOption.asignacionOtro2" name="asignacion-otro-2">Otra Asignación 2</mat-checkbox>
+          <input matInput placeholder="Monto" [(ngModel)]="payOption.asignacionOtro2Monto" name="asignacion-otro-2-monto">
         </section>
       </div>
       <div class="btn-container">
@@ -191,7 +191,7 @@
       <div class="step-container">
         <section class="field-container">
           <h2>¿A qué AFP estás afiliado?</h2>
-          <mat-radio-group>
+          <mat-radio-group [(value)]="payOption.afp" name="afp">
             <mat-radio-button value="1">Option 1</mat-radio-button>
             <mat-radio-button value="2">Option 2</mat-radio-button>
           </mat-radio-group>
@@ -199,25 +199,25 @@
         </section>
         <section class="field-container">
           <h2>¿Tienes préstamos con la Caja de Compensación?</h2>
-          <input matInput placeholder="Prestamo 1">
-          <input matInput placeholder="Prestamo 2">
-          <input matInput placeholder="Prestamo 3">
+          <input matInput placeholder="Prestamo 1" [(ngModel)]="payOption.prestamos1" name="prestamo-1">
+          <input matInput placeholder="Prestamo 2" [(ngModel)]="payOption.prestamos2" name="prestamo-2">
+          <input matInput placeholder="Prestamo 3" [(ngModel)]="payOption.prestamos3" name="prestamo-3">
           <hr noshade/>
         </section>
         <section class="field-container">
           <h2>¿Tienes algún descuento por planilla?</h2>
-          <input matInput placeholder="Total Descuento 1">
-          <input matInput placeholder="Total Descuento 2">
-          <input matInput placeholder="Total Descuento 3">
+          <input matInput placeholder="Total Descuento 1" [(ngModel)]="payOption.descuentos1" name="descuento-1">
+          <input matInput placeholder="Total Descuento 2" [(ngModel)]="payOption.descuentos2" name="descuento-2">
+          <input matInput placeholder="Total Descuento 3" [(ngModel)]="payOption.descuentos3" name="descuento-3">
           <hr noshade/>
         </section>
         <mat-form-field>
-          <input matInput placeholder="¿Tienes el seguro médico Vida Security? ">
+          <input matInput placeholder="¿Tienes el seguro médico Vida Security?" [(ngModel)]="payOption.cuotaSeguro" name="cuota-seguro">
           <mat-hint align="start">Ingresa el total de la cuota.</mat-hint>
         </mat-form-field>
         <section class="field-container">
           <h2>¿Estás sindicalizado?</h2>
-          <mat-radio-group>
+          <mat-radio-group [(value)]="payOption.sindicado" name="sindicato">
             <mat-radio-button value="1">Option 1</mat-radio-button>
             <mat-radio-button value="2">Option 2</mat-radio-button>
           </mat-radio-group>
@@ -226,14 +226,14 @@
         </section>
         <section class="field-container">
           <h2>¿Tienes algúna cuota sindical extraordinaria?</h2>
-          <input matInput placeholder="Total Cuota Extraordinaria 1">
-          <input matInput placeholder="Total Cuota Extraordinaria 2">
-          <input matInput placeholder="Total Cuota Extraordinaria 3">
+          <input matInput placeholder="Total Cuota Extraordinaria 1" [(ngModel)]="payOption.cuotaExtraordinaria1" name="cuota-extraordinaria-1">
+          <input matInput placeholder="Total Cuota Extraordinaria 2" [(ngModel)]="payOption.cuotaExtraordinaria2" name="cuota-extraordinaria-2">
+          <input matInput placeholder="Total Cuota Extraordinaria 3" [(ngModel)]="payOption.cuotaExtraordinaria3" name="cuota-extraordinaria-3">
           <hr noshade/>
           <small>Por ejemplo, algún préstamo, uso de gimnasio, entradas al cine, servicio oftalmológicos o dentales, etc.</small>
         </section>
         <mat-form-field>
-          <input matInput placeholder="Total Descuento Horas">
+          <input matInput placeholder="Total Descuento Horas" [(ngModel)]="payOption.descuentoHoras" name="descuento-horas">
           <mat-hint align="start">Si tienes un descuento de horas por retirarte antes, por llegar después del inicio de turno, o por un permiso especial sin remuneración, pon acá la cantidad de horas.</mat-hint>
         </mat-form-field>
       </div>
