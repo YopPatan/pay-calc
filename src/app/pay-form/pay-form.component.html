@@ -151,13 +151,13 @@
       <div class="step-subtitle">Los siguientes son bonos sujetos a descuentos legales. No se consideran las asignaciones (como colación y movilización) en este item.</div>
       <div class="step-container">
         <section class="check-container">
-          <mat-checkbox [(ngModel)]="payOption.bonoColacion" name="bono-colacion">Colación</mat-checkbox>
+          <mat-checkbox [(ngModel)]="payOption.asignacionColacion" name="asignacion-colacion">Colación</mat-checkbox>
         </section>
         <section class="check-container">
-          <mat-checkbox [(ngModel)]="payOption.bonoMovilizacion" name="bono-movilizacion">Movilización</mat-checkbox>
+          <mat-checkbox [(ngModel)]="payOption.asignacionMovilizacion" name="asignacion-movilizacion">Movilización</mat-checkbox>
         </section>
         <section class="check-container">
-          <mat-checkbox [(ngModel)]="payOption.asignacionCargas" name="bono-asignacion-cargas">Cargas Familiares:</mat-checkbox>
+          <mat-checkbox [(ngModel)]="payOption.asignacionCargas" name="asignacion-cargas">Cargas Familiares:</mat-checkbox>
           <input matInput placeholder="Cantidad" maxlength="10" size="10" [(ngModel)]="payOption.asignacionCargasCantidad" name="asignacion-cargas-cantidad">
           <input matInput placeholder="Monto" maxlength="10" size="10" [(ngModel)]="payOption.asignacionCargasMonto" name="asignacion-cargas-monto">
         </section>
@@ -217,7 +217,7 @@
         </mat-form-field>
         <section class="field-container">
           <h2>¿Estás sindicalizado?</h2>
-          <mat-radio-group [(value)]="payOption.sindicado" name="sindicato">
+          <mat-radio-group [(value)]="payOption.cuotaSindical" name="cuota-sindical">
             <mat-radio-button value="1">Option 1</mat-radio-button>
             <mat-radio-button value="2">Option 2</mat-radio-button>
           </mat-radio-group>

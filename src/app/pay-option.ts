@@ -20,6 +20,8 @@ export class PayOption {
   bonoReserve: boolean;
   bonoRequisitosEspeciales: boolean;
   bonoAltoFlujo: boolean;
+  bonoTrainer: boolean;
+  bonoTrainerCantidad: number;
   bonoReferidos: boolean;
   bonoReferidos3: boolean;
   bonoReferidos3Cantidad: number;
@@ -37,10 +39,10 @@ export class PayOption {
   bonoOtro3: boolean;
   bonoOtro3Monto: number;
   bonoSuplente: boolean;
-  bonoSuplenteMonto: number;
+  bonoSuplenteCantidad: number;
 
-  bonoColacion: boolean;
-  bonoMovilizacion: boolean;
+  asignacionColacion: boolean;
+  asignacionMovilizacion: boolean;
   asignacionCargas: boolean;
   asignacionCargasCantidad: number;
   asignacionCargasMonto: number;
@@ -60,7 +62,7 @@ export class PayOption {
   descuentos2: number;
   descuentos3: number;
   cuotaSeguro: number;
-  sindicado: number;
+  cuotaSindical: number;
   cuotaExtraordinaria1: number;
   cuotaExtraordinaria2: number;
   cuotaExtraordinaria3: number;
