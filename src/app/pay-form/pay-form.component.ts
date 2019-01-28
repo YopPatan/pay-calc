@@ -95,6 +95,12 @@ export class PayFormComponent implements OnInit {
     this.payRoll.afpMonto = (this.getInitData('afps') / 100) * this.payRoll.totalHaberes;
     this.payRoll.isapreMonto = (this.getInitData('isapre') / 100) * this.payRoll.totalHaberes;
     this.payRoll.seguroCesantiaMonto = (this.getInitData('seguroCesantia') / 100) * this.payRoll.totalHaberes;
+
+    this.payRoll.cuotaSindicalMonto = (this.payOption.cuotaSindical) ?
+      (this.getInitData('cuotaSindical')) : 0;
+    this.payRoll.cuotaExtraordinariaMonto = this.payOption.cuotaExtraordinaria1 + this.payOption.cuotaExtraordinaria2 + this.payOption.cuotaExtraordinaria3;
+    this.payRoll.prestamosMonto = this.payOption.prestamos1 + this.payOption.prestamos2 + this.payOption.prestamos3;
+
   }
 
   getInitData(name: string): number {
