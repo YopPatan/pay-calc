@@ -8,11 +8,13 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule, MatButtonModule, MatSelectModule, MatCheckboxModule, MatRadioModule, MatStepperModule } from '@angular/material';
+import { PayRollComponent } from './pay-roll/pay-roll.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PayFormComponent
+    PayFormComponent,
+    PayRollComponent
   ],
   imports: [
     BrowserModule,

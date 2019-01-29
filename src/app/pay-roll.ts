@@ -39,6 +39,7 @@ export class PayRoll {
   cuotaSindicalMonto: number;
   cuotaExtraordinariaMonto: number;
   prestamosMonto: number;
+  anticipioMonto: number;
   cuotaSeguroMonto: number;
   descuentos1Monto: number;
   descuentos2Monto: number;

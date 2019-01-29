@@ -4,8 +4,8 @@ export class PayOption {
   tienda: string;
 
   sueldo: number;
-  ausenciasJustificadad: number;
-  ausenciasInjustificadad: number;
+  ausenciasJustificadas: number;
+  ausenciasInjustificadas: number;
   horasExtras: number;
   recargoDomingos: number;
   recargoFeriados: number;
@@ -62,7 +62,7 @@ export class PayOption {
   descuentos2: number;
   descuentos3: number;
   cuotaSeguro: number;
-  cuotaSindical: number;
+  cuotaSindical: string;
   cuotaExtraordinaria1: number;
   cuotaExtraordinaria2: number;
   cuotaExtraordinaria3: number;
