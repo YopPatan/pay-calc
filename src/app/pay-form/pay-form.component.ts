@@ -80,6 +80,7 @@ export class PayFormComponent implements OnInit {
     this.payOption.cuotaExtraordinaria1 = 5014;
     this.payOption.cuotaExtraordinaria2 = 5015;
     this.payOption.cuotaExtraordinaria3 = 5016;
+    this.payOption.ahorro = 5017;
     this.payOption.descuentoHoras = 8;
   }
 

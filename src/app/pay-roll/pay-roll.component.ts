@@ -14,6 +14,7 @@ export class PayRollComponent implements OnInit {
   payOption: PayOption = new PayOption();
   payRoll: PayRoll = new PayRoll();
   initAmounts: any;
+  initData: any;
 
   constructor(
     private http: HttpClient,
@@ -21,6 +22,10 @@ export class PayRollComponent implements OnInit {
   ) {
     this.http.get('./assets/initial-amounts.json').subscribe(data => {
       this.initAmounts = data;
+      console.log(data);
+    });
+    this.http.get('./assets/initial-data.json').subscribe(data => {
+      this.initData = data;
       console.log(data);
     });
   }
@@ -69,10 +74,15 @@ export class PayRollComponent implements OnInit {
           ((this.payOption.bonoOtro1) ? this.payOption.bonoOtro1Monto : 0) +
           ((this.payOption.bonoOtro2) ? this.payOption.bonoOtro2Monto : 0) +
           ((this.payOption.bonoOtro3) ? this.payOption.bonoOtro3Monto : 0);
-        this.payRoll.gratificacionMonto = ((this.payRoll.getTotalHaberes() * 4.75) / 12 < this.getInitAmounts('immNacional') * 0.25) ?
-          ((this.payRoll.getTotalHaberes() * 4.75) / 12) : (this.getInitAmounts('immNacional') * 0.25);
 
-        console.log(this.payRoll.getTotalHaberes());
+        console.log('gratificaicon opcion 1: ' + (this.getInitAmounts('immNacional') * 4.75) / 12);
+        console.log('gratificaicon opcion 2: ' + this.payRoll.getTotalHaberes() * 0.25);
+        console.log('total haberes sin gratificacion: ' + this.payRoll.getTotalHaberes());
+
+        this.payRoll.gratificacionMonto = ((this.getInitAmounts('immNacional') * 4.75) / 12 < this.payRoll.getTotalHaberes() * 0.25) ?
+          ((this.getInitAmounts('immNacional') * 4.75) / 12) : (this.payRoll.getTotalHaberes() * 0.25);
+
+        console.log('total haberes: ' + this.payRoll.getTotalHaberes());
 
         // Otros Haberes
         this.payRoll.asignacionColacionMonto = (this.payOption.asignacionColacion) ?
@@ -94,6 +104,7 @@ export class PayRollComponent implements OnInit {
         this.payRoll.totalHaberesOtros = this.payRoll.getTotalHaberesOtros();
 
         // Descuentos
+        console.log('afp: ' + this.getInitAmounts('afps'));
         this.payRoll.afpMonto = (this.getInitAmounts('afps') / 100) * this.payRoll.totalHaberes;
         this.payRoll.isapreMonto = (this.getInitAmounts('isapre') / 100) * this.payRoll.totalHaberes;
         this.payRoll.seguroCesantiaMonto = (this.getInitAmounts('seguroCesantia') / 100) * this.payRoll.totalHaberes;
@@ -107,9 +118,11 @@ export class PayRollComponent implements OnInit {
         this.payRoll.descuentos1Monto = this.payOption.descuentos1;
         this.payRoll.descuentos2Monto = this.payOption.descuentos2;
         this.payRoll.descuentos3Monto = this.payOption.descuentos3;
+        this.payRoll.ahorroMonto = this.payOption.ahorro;
+
+        this.payRoll.totalDescuentos = this.payRoll.getTotalDescuentos();
 
         console.log(this.payRoll);
-
       }
     });
   }
@@ -121,8 +134,11 @@ export class PayRollComponent implements OnInit {
     else if (this.initAmounts[name][this.payOption.jornada] != null) {
       return parseInt(this.initAmounts[name][this.payOption.jornada]);
     }
+    else if (this.initAmounts[name][this.payOption.afp] != null) {
+      return parseFloat(this.initAmounts[name][this.payOption.afp]);
+    }
     else {
-      return parseInt(this.initAmounts[name]);
+      return parseFloat(this.initAmounts[name]);
     }
   }
 

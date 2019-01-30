@@ -232,6 +232,9 @@
             <small>Por ejemplo, algún préstamo, uso de gimnasio, entradas al cine, servicio oftalmológicos o dentales, etc.</small>
           </section>
           <mat-form-field>
+            <input matInput placeholder="Ahorro CCAF" [(ngModel)]="payOption.ahorro" name="ahorro">
+          </mat-form-field>
+          <mat-form-field>
             <input matInput placeholder="Total Descuento Horas" [(ngModel)]="payOption.descuentoHoras" name="descuento-horas">
             <mat-hint align="start">Si tienes un descuento de horas por retirarte antes, por llegar después del inicio de turno, o por un permiso especial sin remuneración, pon acá la cantidad de horas.</mat-hint>
           </mat-form-field>

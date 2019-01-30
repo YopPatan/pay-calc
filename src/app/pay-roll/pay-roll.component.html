@@ -1,13 +1,221 @@
-<mat-list>
-  <h3 mat-subheader>Folders</h3>
-  <mat-list-item>
-    <h4>aa</h4>
-    <p>bb</p>
-  </mat-list-item>
-  <mat-divider></mat-divider>
-  <h3 mat-subheader>Notes</h3>
-  <mat-list-item>
-    <h4 mat-line>aa</h4>
-    <p mat-line>bb</p>
-  </mat-list-item>
-</mat-list>
+<div *ngIf="initData && initAmounts">
+<table>
+  <thead>
+
+  </thead>
+  <tr>
+    <th>Haberes</th>
+  </tr>
+  <tr>
+    <td>Sueldo Base</td>
+    <td>{{payOption.sueldo | cl:'currency'}}</td>
+    <td>{{payRoll.sueldo}}</td>
+  </tr>
+  <tr>
+    <td>Descuento Horas No Trabajadas</td>
+    <td>{{payOption.descuentoHoras | cl:'decimal'}}</td>
+    <td>{{payRoll.descuentoHorasMonto}}</td>
+  </tr>
+  <tr>
+    <td>Horas Extras 50%</td>
+    <td>{{payOption.horasExtras}}</td>
+    <td>{{payRoll.horasExtrasMonto}}</td>
+  </tr>
+  <tr>
+    <td>Recargo Domingos</td>
+    <td>{{payOption.recargoDomingos}}</td>
+    <td>{{payRoll.recargoDomingosMonto}}</td>
+  </tr>
+  <tr>
+    <td>Recargo Feriado (Hora Extra Feriado)</td>
+    <td>{{payOption.recargoFeriados}}</td>
+    <td>{{payRoll.recargoFeriadosMonto}}</td>
+  </tr>
+  <tr>
+    <td>Bono Noche</td>
+    <td></td>
+    <td>{{payRoll.bonoNocheMonto}}</td>
+  </tr>
+  <tr>
+    <td>Bono Servicio</td>
+    <td></td>
+    <td>{{payRoll.bonoServicioMonto}}</td>
+  </tr>
+  <tr>
+    <td>Bono Operaciones</td>
+    <td></td>
+    <td>{{payRoll.bonoOperacionesMonto}}</td>
+  </tr>
+  <tr>
+    <td>Bono Reserve</td>
+    <td></td>
+    <td>{{payRoll.bonoReserveMonto}}</td>
+  </tr>
+  <tr>
+    <td>Tienda Requisitos Especiales</td>
+    <td></td>
+    <td>{{payRoll.bonoRequisitosEspecialesMonto}}</td>
+  </tr>
+  <tr>
+    <td>Bono Alto Flujo</td>
+    <td></td>
+    <td>{{payRoll.bonoAltoFlujoMonto}}</td>
+  </tr>
+  <tr>
+    <td>Bono Partner</td>
+    <td></td>
+    <td>{{payRoll.bonoPartnerMonto}}</td>
+  </tr>
+  <tr>
+    <td>Bono Barista Trainer</td>
+    <td></td>
+    <td>{{payRoll.bonoTrainerMonto}}</td>
+  </tr>
+  <tr>
+    <td>Bono Referidos</td>
+    <td></td>
+    <td>{{payRoll.bonoReferidosMonto}}</td>
+  </tr>
+  <tr>
+    <td>Bono Suplente</td>
+    <td>{{payOption.bonoSuplenteCantidad}}</td>
+    <td>{{payRoll.bonoSuplenteMonto}}</td>
+  </tr>
+  <tr>
+    <td>Aguinaldo Fiestas Patrias</td>
+    <td></td>
+    <td>{{payRoll.bonoFiestasPatriasMonto}}</td>
+  </tr>
+  <tr>
+    <td>Otro (Nombre)</td>
+    <td></td>
+    <td>{{payRoll.bonoOtrosMonto}}</td>
+  </tr>
+  <tr>
+    <td>Gratificación</td>
+    <td></td>
+    <td>{{payRoll.gratificacionMonto}}</td>
+  </tr>
+  <tr>
+    <th>Otros Haberes</th>
+  </tr>
+  <tr>
+    <td>Colación</td>
+    <td></td>
+    <td>{{payRoll.asignacionColacionMonto}}</td>
+  </tr>
+  <tr>
+    <td>Movilización</td>
+    <td></td>
+    <td>{{payRoll.asignacionMovilizacionMonto}}</td>
+  </tr>
+  <tr>
+    <td>Asignación Especial Movilización</td>
+    <td></td>
+    <td>{{payRoll.asignacionTransporteMonto}}</td>
+  </tr>
+  <tr>
+    <td>Asignación Sala Cuna</td>
+    <td></td>
+    <td>{{payRoll.asignacionSalaCunaMonto}}</td>
+  </tr>
+  <tr>
+    <td>Otra asignación 1</td>
+    <td></td>
+    <td>{{payRoll.asignacionOtro1Monto}}</td>
+  </tr>
+  <tr>
+    <td>Otra asignación 2</td>
+    <td></td>
+    <td>{{payRoll.asignacionOtro2Monto}}</td>
+  </tr>
+  <tr>
+    <th>Asignaciones Familiares</th>
+  </tr>
+  <tr>
+    <td>Asignaciones Familiares Simple</td>
+    <td></td>
+    <td>{{payRoll.asignacionCargasMonto}}</td>
+  </tr>
+  <tr>
+    <th>Total haberes</th>
+    <th></th>
+    <th>{{payRoll.totalHaberes + payRoll.totalHaberesOtros}}</th>
+  </tr>
+</table>
+<table>
+  <tr>
+    <th>Descuentos Legales</th>
+  </tr>
+  <tr>
+    <td>{{initData.afps[payOption.afp]}}</td>
+    <td>{{getInitAmounts('afps') | cl:'percent'}}</td>
+    <td>{{payRoll.afpMonto}}</td>
+  </tr>
+  <tr>
+    <td>Fonasa</td>
+    <td>{{getInitAmounts('isapre')}}%</td>
+    <td>{{payRoll.isapreMonto}}</td>
+  </tr>
+  <tr>
+    <td>Seguro de Cesantía</td>
+    <td>{{getInitAmounts('seguroCesantia')}}%</td>
+    <td>{{payRoll.seguroCesantiaMonto}}</td>
+  </tr>
+  <tr>
+    <td>Exento de impuesto</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Cuota Sindical</td>
+    <td></td>
+    <td>{{payRoll.cuotaSindicalMonto}}</td>
+  </tr>
+  <tr>
+    <td>Cuota Sindical Extraordinaria</td>
+    <td></td>
+    <td>{{payRoll.cuotaExtraordinariaMonto}}</td>
+  </tr>
+  <tr>
+    <td>Préstamos CCAF</td>
+    <td></td>
+    <td>{{payRoll.prestamosMonto}}</td>
+  </tr>
+  <tr>
+    <td>Anticipo de Sueldo</td>
+    <td></td>
+    <td>{{payRoll.anticipioMonto}}</td>
+  </tr>
+  <tr>
+    <td>Seguro médico</td>
+    <td></td>
+    <td>{{payRoll.cuotaSeguroMonto}}</td>
+  </tr>
+  <tr>
+    <td>Otros descuentos por planilla 1</td>
+    <td></td>
+    <td>{{payRoll.descuentos1Monto}}</td>
+  </tr>
+  <tr>
+    <td>Otros descuentos por planilla 2</td>
+    <td></td>
+    <td>{{payRoll.descuentos2Monto}}</td>
+  </tr>
+  <tr>
+    <td>Otros descuentos por planilla 3</td>
+    <td></td>
+    <td>{{payRoll.descuentos3Monto}}</td>
+  </tr>
+  <tr>
+    <td>Ahorro CCAF</td>
+    <td></td>
+    <td>{{payRoll.ahorroMonto}}</td>
+  </tr>
+  <tr>
+    <th>Total haberes</th>
+    <th></th>
+    <th>{{payRoll.totalDescuentos}}</th>
+  </tr>
+</table>
+</div>

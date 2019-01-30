@@ -23,7 +23,7 @@ export class PayRoll {
   bonoSuplenteMonto: number;
   bonoFiestasPatriasMonto: number;
   bonoOtrosMonto: number;
-  gratificacionMonto: number;
+  gratificacionMonto: number = 0;
 
   asignacionColacionMonto: number ;
   asignacionMovilizacionMonto: number;
@@ -44,6 +44,7 @@ export class PayRoll {
   descuentos1Monto: number;
   descuentos2Monto: number;
   descuentos3Monto: number;
+  ahorroMonto: number;
 
   getTotalHaberes(): number {
     return this.sueldo +
@@ -74,5 +75,20 @@ export class PayRoll {
       this.asignacionOtro1Monto +
       this.asignacionOtro2Monto +
       this.asignacionCargasMonto;
+  }
+
+  getTotalDescuentos(): number {
+    return this.afpMonto +
+    this.isapreMonto +
+    this.seguroCesantiaMonto +
+    this.cuotaSindicalMonto +
+    this.cuotaExtraordinariaMonto +
+    this.prestamosMonto +
+    this.anticipioMonto +
+    this.cuotaSeguroMonto +
+    this.descuentos1Monto +
+    this.descuentos2Monto +
+    this.descuentos3Monto +
+    this.ahorroMonto;
   }
 }

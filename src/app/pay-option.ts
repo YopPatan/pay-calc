@@ -66,5 +66,6 @@ export class PayOption {
   cuotaExtraordinaria1: number;
   cuotaExtraordinaria2: number;
   cuotaExtraordinaria3: number;
+  ahorro: number;
   descuentoHoras: number;
 }
