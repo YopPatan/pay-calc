@@ -25,7 +25,7 @@ export class PayRoll {
   bonoOtrosMonto: number;
   gratificacionMonto: number;
 
-  asignacionColacionMonto: number;
+  asignacionColacionMonto: number ;
   asignacionMovilizacionMonto: number;
   asignacionTransporteMonto: number;
   asignacionSalaCunaMonto: number;

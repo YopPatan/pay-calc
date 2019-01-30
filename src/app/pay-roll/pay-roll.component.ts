@@ -32,7 +32,7 @@ export class PayRollComponent implements OnInit {
         this.payOption = data as PayOption;
 
         this.payRoll.diasTrabajos = 30 - this.payOption.ausenciasJustificadas - this.payOption.ausenciasInjustificadas;
-        this.payRoll.sueldo = this.payOption.sueldo;
+        this.payRoll.sueldo = (this.payOption.sueldo / 30) * this.payRoll.diasTrabajos;
         this.payRoll.valorHora = ((this.payOption.sueldo / 30) * 7) / parseInt(this.payOption.jornada);
         this.payRoll.valorHoraExtra = this.payRoll.valorHora * 1.5;
         this.payRoll.descuentoHorasMonto = this.payOption.descuentoHoras * this.payRoll.valorHora;
@@ -42,9 +42,9 @@ export class PayRollComponent implements OnInit {
 
         // Haberes
         this.payRoll.bonoNocheMonto = (this.payOption.bonoNoche) ?
-          (this.getInitAmounts('bonoNoche')) : 0;
+          ((this.getInitAmounts('bonoNoche') / 30) * this.payRoll.diasTrabajos) : 0;
         this.payRoll.bonoServicioMonto = (this.payOption.bonoServicio) ?
-          (this.payOption.bonoServicio50 ? this.getInitAmounts('bonoServicio50') : this.getInitAmounts('bonoServicio100')) : 0;
+          (this.payOption.bonoServicio100 ? this.getInitAmounts('bonoServicio100') : this.getInitAmounts('bonoServicio50')) : 0;
         this.payRoll.bonoOperacionesMonto = (this.payOption.bonoOperaciones) ?
           (this.payOption.bonoOperacionesMonto) : 0;
         this.payRoll.bonoReserveMonto = (this.payOption.bonoReserve) ?
@@ -58,8 +58,8 @@ export class PayRollComponent implements OnInit {
         this.payRoll.bonoTrainerMonto = (this.payOption.bonoTrainer) ?
           (this.getInitAmounts('bonoTrainer') * this.payOption.bonoTrainerCantidad) : 0;
         this.payRoll.bonoReferidosMonto =
-          ((this.payOption.bonoReferidos3) ? this.getInitAmounts('bonoReferidos3') : 0) * this.payOption.bonoReferidos3Cantidad +
-          ((this.payOption.bonoReferidos9) ? this.getInitAmounts('bonoReferidos9') : 0) * this.payOption.bonoReferidos9Cantidad;
+          ((this.payOption.bonoReferidos3) ? this.getInitAmounts('bonoReferidos3') * this.payOption.bonoReferidos3Cantidad : 0 ) +
+          ((this.payOption.bonoReferidos9) ? this.getInitAmounts('bonoReferidos9') * this.payOption.bonoReferidos9Cantidad : 0);
         this.payRoll.bonoPartnerMonto =
           ((this.payOption.bonoPartnerAnnoActual) ? this.payOption.bonoPartnerAnnoActualMonto : 0) +
           ((this.payOption.bonoPartnerAnnoAnterior) ? this.payOption.bonoPartnerAnnoAnteriorMonto : 0);
@@ -71,6 +71,8 @@ export class PayRollComponent implements OnInit {
           ((this.payOption.bonoOtro3) ? this.payOption.bonoOtro3Monto : 0);
         this.payRoll.gratificacionMonto = ((this.payRoll.getTotalHaberes() * 4.75) / 12 < this.getInitAmounts('immNacional') * 0.25) ?
           ((this.payRoll.getTotalHaberes() * 4.75) / 12) : (this.getInitAmounts('immNacional') * 0.25);
+
+        console.log(this.payRoll.getTotalHaberes());
 
         // Otros Haberes
         this.payRoll.asignacionColacionMonto = (this.payOption.asignacionColacion) ?
@@ -116,8 +118,11 @@ export class PayRollComponent implements OnInit {
     if (this.initAmounts[name][this.payOption.cargo] != null) {
       return parseInt(this.initAmounts[name][this.payOption.cargo]);
     }
-    else {
+    else if (this.initAmounts[name][this.payOption.jornada] != null) {
       return parseInt(this.initAmounts[name][this.payOption.jornada]);
+    }
+    else {
+      return parseInt(this.initAmounts[name]);
     }
   }
 

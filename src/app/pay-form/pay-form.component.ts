@@ -41,6 +41,8 @@ export class PayFormComponent implements OnInit {
     this.payOption.bonoFiestasPatrias = true;
     this.payOption.bonoOperaciones = true;
     this.payOption.bonoOperacionesMonto = 5001;
+    this.payOption.bonoTrainer = true;
+    this.payOption.bonoTrainerCantidad = 11;
     this.payOption.bonoReserve = true;
     this.payOption.bonoRequisitosEspeciales = true;
     this.payOption.bonoAltoFlujo = true;

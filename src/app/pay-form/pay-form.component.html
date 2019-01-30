@@ -75,16 +75,21 @@
             <mat-checkbox [(ngModel)]="payOption.bonoServicio" name="bono-servicio">Bono Servicio</mat-checkbox>
           </section>
           <section class="check-container indent-container">
-            <mat-checkbox [(ngModel)]="payOption.bonoServicio50" name="bono-noche-50">50%</mat-checkbox>
+            <mat-checkbox [(ngModel)]="payOption.bonoServicio50" name="bono-servicio-50">50%</mat-checkbox>
           </section>
           <section class="check-container indent-container">
-            <mat-checkbox [(ngModel)]="payOption.bonoServicio100" name="bono-noche-100">100%</mat-checkbox>
+            <mat-checkbox [(ngModel)]="payOption.bonoServicio100" name="bono-servicio-100">100%</mat-checkbox>
           </section>
           <section class="check-container">
             <mat-checkbox [(ngModel)]="payOption.bonoFiestasPatrias" name="bono-fiestas-patrias">Aguinaldo de Fiestas Patrias</mat-checkbox>
           </section>
           <section class="check-container">
-            <mat-checkbox [(ngModel)]="payOption.bonoOperaciones" name="bono-operaciones">Bono Operaciones</mat-checkbox>
+            <mat-checkbox [(ngModel)]="payOption.bonoOperaciones" name="bono-operaciones">Bono Operaciones:</mat-checkbox>
+            <input matInput placeholder="Monto" [(ngModel)]="payOption.bonoOperacionesMonto" name="bono-operaciones-monto">
+          </section>
+          <section class="check-container">
+            <mat-checkbox [(ngModel)]="payOption.bonoTrainer" name="bono-trainer">Bono Trainer:</mat-checkbox>
+            <input matInput placeholder="Cantidad" [(ngModel)]="payOption.bonoTrainerCantidad" name="bono-trianer-cantidad">
           </section>
           <section class="check-container">
             <mat-checkbox [(ngModel)]="payOption.bonoReserve" name="bono-reserve">Bono Reserve</mat-checkbox>
@@ -131,7 +136,7 @@
           </section>
           <section class="check-container">
             <mat-checkbox [(ngModel)]="payOption.bonoSuplente" name="bono-suplente">Bono Suplente:</mat-checkbox>
-            <input matInput placeholder="Horas" [(ngModel)]="payOption.bonoSuplenteMonto" name="bono-suplente-monto">
+            <input matInput placeholder="Horas" [(ngModel)]="payOption.bonoSuplenteCantidad" name="bono-suplente-cantidad">
           </section>
         </div>
         <div class="btn-container">
