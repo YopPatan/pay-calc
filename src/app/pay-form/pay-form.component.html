@@ -33,7 +33,7 @@
         <ng-template matStepLabel>Información de la Remuneración Mensual</ng-template>
         <div class="step-container">
           <mat-form-field>
-            <input matInput placeholder="Sueldo base (v.)" [(ngModel)]="payOption.sueldo" name="sueldo">
+            <input matInput type="number" placeholder="Sueldo base (v.)" [(ngModel)]="payOption.sueldo" name="sueldo" required>
             <mat-hint align="start">El sueldo base es un valor objetivo que aparece sin descuentos en la segunda columna de la liquidación, bajo la glosa (v.o).</mat-hint>
           </mat-form-field>
           <mat-form-field>

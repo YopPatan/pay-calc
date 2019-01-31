@@ -1,7 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+body {
+  margin: 0px !important;
+}
+
+h1 {
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  font-size: 1.6rem;
+  color: rgba(0,0,0,.87);
+  margin: 16px;
+}
+
 .mat-form-field-underline,
 .mat-form-field-subscript-wrapper {
   position: initial !important;
+}
+
+.mat-step-header[aria-selected="true"] {
+  background-color: #3e7f19;
+}
+
+.mat-step-header[aria-selected="true"] .mat-step-label.mat-step-label-active {
+  color: #fff;
+  font-size: 1.4rem;
+}
+
+.mat-vertical-stepper-header {
+  padding: 14px !important;
+  height: 24px !important;
+}
+
+.mat-vertical-content-container {
+  margin-left: 26px !important;
+}
+
+.mat-vertical-content {
+  padding: 20px !important;
 }
