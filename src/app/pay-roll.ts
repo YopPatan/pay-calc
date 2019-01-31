@@ -2,6 +2,7 @@ export class PayRoll {
   totalHaberes: number;
   totalHaberesOtros: number;
   totalDescuentos: number;
+  totalDescuentosOtros: number;
 
   diasTrabajos: number;
   sueldo: number;
@@ -80,15 +81,18 @@ export class PayRoll {
   getTotalDescuentos(): number {
     return this.afpMonto +
     this.isapreMonto +
-    this.seguroCesantiaMonto +
-    this.cuotaSindicalMonto +
-    this.cuotaExtraordinariaMonto +
-    this.prestamosMonto +
-    this.anticipioMonto +
-    this.cuotaSeguroMonto +
-    this.descuentos1Monto +
-    this.descuentos2Monto +
-    this.descuentos3Monto +
-    this.ahorroMonto;
+    this.seguroCesantiaMonto;
+  }
+
+  getTotalDescuentosOtros(): number {
+    return this.cuotaSindicalMonto +
+      this.cuotaExtraordinariaMonto +
+      this.prestamosMonto +
+      this.anticipioMonto +
+      this.cuotaSeguroMonto +
+      this.descuentos1Monto +
+      this.descuentos2Monto +
+      this.descuentos3Monto +
+      this.ahorroMonto;
   }
 }

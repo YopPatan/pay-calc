@@ -121,6 +121,7 @@ export class PayRollComponent implements OnInit {
         this.payRoll.ahorroMonto = this.payOption.ahorro;
 
         this.payRoll.totalDescuentos = this.payRoll.getTotalDescuentos();
+        this.payRoll.totalDescuentosOtros = this.payRoll.getTotalDescuentosOtros();
 
         console.log(this.payRoll);
       }
