@@ -11,6 +11,7 @@ import { MessageService } from '../message.service';
 export class PayFormComponent implements OnInit {
   payOption: PayOption = new PayOption();
   initData: any;
+  enabled: boolean = true;
 
   constructor(
     private http: HttpClient,
@@ -86,6 +87,7 @@ export class PayFormComponent implements OnInit {
 
   getResult(): void {
     this.message.changeMessage(this.payOption);
+    this.enabled = false;
   }
 
 

@@ -1,6 +1,6 @@
-<div *ngIf="initData">
+<div *ngIf="enabled && initData">
   <mat-vertical-stepper #stepper>
-    <mat-step>
+    <mat-step [completed]="false">
       <form>
         <ng-template matStepLabel>Información del Cargo</ng-template>
         <div class="step-container">
@@ -28,7 +28,7 @@
         </div>
       </form>
     </mat-step>
-    <mat-step>
+    <mat-step [completed]="false">
       <form>
         <ng-template matStepLabel>Información de la Remuneración Mensual</ng-template>
         <div class="step-container">
@@ -63,7 +63,7 @@
         </div>
       </form>
     </mat-step>
-    <mat-step>
+    <mat-step [completed]="false">
       <form>
         <ng-template matStepLabel>Bonos Imponibles</ng-template>
         <div class="step-subtitle">Los siguientes son bonos sujetos a descuentos legales. No se consideran las asignaciones (como colación y movilización) en este item.</div>
@@ -145,7 +145,7 @@
         </div>
       </form>
     </mat-step>
-    <mat-step>
+    <mat-step [completed]="false">
       <form>
         <ng-template matStepLabel>Asignaciones No Imponibles</ng-template>
         <div class="step-subtitle">Los siguientes son bonos sujetos a descuentos legales. No se consideran las asignaciones (como colación y movilización) en este item.</div>
@@ -184,7 +184,7 @@
         </div>
       </form>
     </mat-step>
-    <mat-step>
+    <mat-step [completed]="false">
       <form>
         <ng-template matStepLabel>Descuentos</ng-template>
         <div class="step-subtitle">Nuestra liquidación incluye también una serie de descuentos legales y electivos.</div>
@@ -242,7 +242,7 @@
         </div>
         <div class="btn-container">
           <button mat-raised-button matStepperPrevious>Atras</button>
-          <button mat-raised-button (click)="getResult()">Generar</button>
+          <button mat-raised-button (click)="getResult()">Enviar</button>
         </div>
       </form>
     </mat-step>

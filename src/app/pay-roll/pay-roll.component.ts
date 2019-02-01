@@ -15,6 +15,7 @@ export class PayRollComponent implements OnInit {
   payRoll: PayRoll = new PayRoll();
   initAmounts: any;
   initData: any;
+  enabled: boolean = false;
 
   constructor(
     private http: HttpClient,
@@ -122,6 +123,7 @@ export class PayRollComponent implements OnInit {
 
         this.payRoll.totalDescuentos = this.payRoll.getTotalDescuentos();
         this.payRoll.totalDescuentosOtros = this.payRoll.getTotalDescuentosOtros();
+        this.enabled = true;
 
         console.log(this.payRoll);
       }

@@ -3,18 +3,50 @@
 
 body {
   margin: 0px !important;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
 }
 
 h1 {
-  font-family: Roboto,"Helvetica Neue",sans-serif;
+  /*font-family: Roboto,"Helvetica Neue",sans-serif;*/
   font-size: 1.6rem;
   color: rgba(0,0,0,.87);
-  margin: 16px;
+  margin: 0;
+}
+
+header {
+  padding: 16px;
+  border-bottom: 5px solid darkgreen;
+  margin-bottom: 5px;
 }
 
 .mat-form-field-underline,
 .mat-form-field-subscript-wrapper {
   position: initial !important;
+}
+
+.mat-step-icon {
+/*  background-color: #3e7f19 !important;*/
+  color: #fff !important;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.mat-vertical-stepper-header {
+  padding: 14px !important;
+  height: 8px !important;
+}
+
+.mat-vertical-content {
+  padding: 20px !important;
+}
+
+.mat-vertical-content-container {
+  margin-left: 26px !important;
+}
+
+.mat-stepper-vertical-line::before {
+  top: -7px !important;
+  bottom: -7px !important;
 }
 
 .mat-step-header[aria-selected="true"] {
@@ -26,15 +58,36 @@ h1 {
   font-size: 1.4rem;
 }
 
-.mat-vertical-stepper-header {
+.mat-step-header[aria-selected="true"] .mat-step-icon-selected,
+.mat-step-header[aria-selected="true"] .mat-step-icon-state-done,
+.mat-step-header[aria-selected="true"] .mat-step-icon-state-edit {
+  background-color: #fff !important;
+  color: rgba(0,0,0,.87) !important;
+  /*  font-size: 0.9rem;
+    font-weight: bold;*/
+}
+
+.mat-step-header[aria-selected="true"].mat-vertical-stepper-header {
   padding: 14px !important;
   height: 24px !important;
 }
 
-.mat-vertical-content-container {
-  margin-left: 26px !important;
+.mat-step-header[aria-selected="true"] + .mat-stepper-vertical-line::before {
+  top: -14px !important;
+  bottom: -14px !important;
 }
 
-.mat-vertical-content {
-  padding: 20px !important;
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: mediumseagreen;
 }
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+  background-color: mediumseagreen;
+}
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: mediumseagreen;
+}
+
+
+

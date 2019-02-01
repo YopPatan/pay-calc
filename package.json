@@ -1,6 +1,6 @@
 {
-  "name": "pay-cal",
-  "version": "0.0.0",
+  "name": "pay-calc",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

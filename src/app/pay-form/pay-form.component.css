@@ -10,7 +10,7 @@
 .step-subtitle {
   color: #888;
   font-size: 14px;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .check-container {
@@ -68,7 +68,7 @@
 }
 
 .btn-container {
-  margin-top: 25px;
+  margin-top: 20px;
 }
 
 .btn-container > button {

@@ -6,7 +6,7 @@ table {
 }
 
 td, th {
-  font-family: Roboto,"Helvetica Neue",sans-serif;
+  /*font-family: Roboto,"Helvetica Neue",sans-serif;*/
   font-size: 0.9rem;
   font-weight: 400;
   color: rgba(0,0,0,.87);
@@ -53,6 +53,18 @@ tfoot td {
 .table-footer tbody td:nth-child(2),
 .table-footer tbody th:nth-child(2) {
   text-align: right;
+}
+
+.pay-roll {
+  padding: 15px;
+}
+
+.pay-roll-title {
+  background-color: #3e7f19;
+  color: #fff;
+  font-size: 1.4rem;
+  padding: 14px !important;
+  height: 24px !important;
 }
 
 
