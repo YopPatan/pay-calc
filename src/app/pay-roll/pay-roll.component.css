@@ -1,57 +1,86 @@
-table {
+.header-info {
+  display: table;
   width: 100%;
-  border-collapse: collapse;
-/*  margin-bottom: 1rem;*/
 }
 
-.info {
+.header-info > div {
   border-radius: 5px;
   border: 1px solid #555;
+  display: table-cell;
   font-size: 0.8rem;
   padding: 5px;
+}
+
+.header-info > div:nth-child(2) {
+  border: 0px;
+}
+
+.header-info > div:nth-child(3) {
+  text-align: center;
+  padding: 5px;
+}
+
+.header-info > div:nth-child(3) > div {
+  padding: 2px;
 }
 
 .mini {
   font-size: 0.65rem;
 }
 
-.table-review {
-  /*margin-bottom: 1rem;*/
-  border: 1px solid #555;
+.header-title {
+  font-size: 1.6rem;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 10px;
 }
 
-.table-review td,
-.table-review th {
-  /*font-family: Roboto,"Helvetica Neue",sans-serif;*/
-  font-size: 0.9rem;
-  font-weight: 400;
+.header-sumary {
+  border-radius: 5px;
+  border: 1px solid #555;
+  margin-bottom: 15px;
+}
+
+.header-sumary table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.header-sumary table th {
+  text-align: left;
+}
+
+/* TABLA GENERICA */
+td, th {
+  font-size: 0.8rem;
+  /*font-weight: 400;*/
   color: rgba(0,0,0,.87);
   padding : 0.2rem;
 }
 
-.table-review thead td {
-  background-color: #bbb;
+.table-review {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #555;
+  margin-bottom: 20px;
+}
+
+/* TABLA REVIEW */
+.table-review td,
+.table-review th {
+  border-right: 1px solid #555;
 }
 
 .table-review thead th {
-  text-align: left;
-  font-weight: bold;
+  border-bottom: 1px solid #555;
 }
 
 .table-review tbody th {
   text-align: left;
-  font-weight: bold;
+  text-transform: uppercase;
 }
 
-.table-review tfoot td {
-  text-align: left;
-  background-color: #bbb;
-}
-
-.table-review thead td:nth-child(2),
-.table-review thead td:last-child,
-.table-review tfoot td:nth-child(2),
-.table-review tbody td:last-child {
+.table-review tbody td:not(:first-child) {
   text-align: right;
 }
 
@@ -60,16 +89,31 @@ table {
   font-size: 0.7rem;
 }
 
-.table-header tbody td:nth-child(2),
-.table-header tbody td:nth-child(4) {
-  text-align: right;
-  font-size: 0.7rem;
+.table-review tfoot td {
+  border-top: 1px solid #555;
 }
 
-.table-footer tbody td:nth-child(2),
-.table-footer tbody th:nth-child(2) {
+.table-review tfoot td:first-child {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.table-review tfoot td:not(:first-child) {
   text-align: right;
 }
+
+.subtotal {
+  float: left;
+  text-transform: none;
+}
+
+.total {
+  float: right;
+  font-weight: bold;
+  text-transform: none;
+/*  text-transform: uppercase;*/
+}
+
 
 .pay-roll {
   padding: 15px;

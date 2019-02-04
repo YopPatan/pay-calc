@@ -3,58 +3,56 @@
   Liquidacion
 </div>
 <div class="pay-roll">
-<table>
-  <tr>
-    <td>
-      <div class="info" style="margin-right: 15px;">
-        <div>Starbucks Coffee Chile S.A.</div>
-        <div>96.690.980-3</div>
-        <div class="mini">Alonso de Cordoba #5670 P11 Las Condes</div>
-      </div>
-    </td>
-    <td>
-      <div class="info">
-        <div class="mini">Liquidacion de: 06/2017</div>
-        <div style="padding: 7px; text-align: center;">Junio de 2017</div>
-      </div>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2" style="font-size: 2rem; text-align: center;">Liquidación de Remuneraciones</td>
-  </tr>
-</table>
-<table class="table-header">
-  <tbody>
-    <tr>
-      <td>Cargo</td>
-      <td colspan="3">{{initData.cargos[payOption.cargo]}}</td>
-    </tr>
-    <tr>
-      <td>Tienda</td>
-      <td colspan="3">{{initData.tiendas[payOption.tienda]}}</td>
-    </tr>
-    <tr>
-      <td>Días trabajados</td>
-      <td>{{payRoll.diasTrabajos}}</td>
-      <td>Valor hora</td>
-      <td>{{payRoll.valorHora | cl:'currency'}}</td>
-    </tr>
-    <tr>
-      <td>Horas base</td>
-      <td>{{payOption.jornada}}</td>
-      <td>Valor hora extra</td>
-      <td>{{payRoll.valorHoraExtra | cl:'currency'}}</td>
-    </tr>
-  </tbody>
-</table>
+
+  <div class="header-info">
+    <div>
+      <div>Starbucks Coffee Chile S.A.</div>
+      <div class="mini">96.690.980-3</div>
+      <div class="mini">Alonso de Cordoba #5670 P11 Las Condes</div>
+    </div>
+    <div>&nbsp;&nbsp;</div>
+    <div>
+      <div class="mini">Liquidacion de: 06/2017</div>
+      <div>Junio de 2017</div>
+    </div>
+  </div>
+
+  <div class="header-title">Liquidación de Remuneraciones</div>
+
+  <div class="header-sumary">
+    <table>
+      <tbody>
+        <tr>
+          <th>Cargo</th>
+          <td colspan="3">{{initData.cargos[payOption.cargo]}}</td>
+        </tr>
+        <tr>
+          <th>Tienda</th>
+          <td colspan="3">{{initData.tiendas[payOption.tienda]}}</td>
+        </tr>
+        <tr>
+          <th>Días trabajados</th>
+          <td>{{payRoll.diasTrabajos}}</td>
+          <th>Valor hora</th>
+          <td>{{payRoll.valorHora | cl:'currency'}}</td>
+        </tr>
+        <tr>
+          <th>Horas base</th>
+          <td>{{payOption.jornada}}</td>
+          <th>Valor hora extra</th>
+          <td>{{payRoll.valorHoraExtra | cl:'currency'}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
 <table class="table-review">
   <thead>
     <tr>
-      <td>Detalle</td>
-      <td>v.o.</td>
-      <td>Haberes</td>
-      <td>Descuentos</td>
+      <th>Detalle</th>
+      <th>v.o.</th>
+      <th>Haberes</th>
+      <th>Descuentos</th>
     </tr>
   </thead>
   <tbody>
@@ -70,97 +68,97 @@
       <td>{{payRoll.sueldo | cl:'currency'}}</td>
       <td></td>
     </tr>
-    <tr>
+    <tr *ngIf="payRoll.descuentoHorasMonto > 0">
       <td>Descuento Horas No Trabajadas</td>
       <td>{{payOption.descuentoHoras | cl:'decimal'}}</td>
       <td>{{payRoll.descuentoHorasMonto | cl:'currency'}}</td>
       <td></td>
     </tr>
-    <tr>
+    <tr *ngIf="payRoll.horasExtrasMonto > 0">
       <td>Horas Extras 50%</td>
       <td>{{payOption.horasExtras | cl:'decimal'}}</td>
       <td>{{payRoll.horasExtrasMonto | cl:'currency'}}</td>
       <td></td>
     </tr>
-    <tr>
+    <tr *ngIf="payRoll.recargoDomingosMonto > 0">
       <td>Recargo Domingos</td>
       <td>{{payOption.recargoDomingos | cl:'decimal'}}</td>
       <td>{{payRoll.recargoDomingosMonto | cl:'currency'}}</td>
       <td></td>
     </tr>
-    <tr>
+    <tr *ngIf="payRoll.recargoFeriadosMonto > 0">
       <td>Recargo Feriado (Hora Extra Feriado)</td>
       <td>{{payOption.recargoFeriados | cl:'decimal'}}</td>
       <td>{{payRoll.recargoFeriadosMonto | cl:'currency'}}</td>
       <td></td>
     </tr>
-    <tr>
+    <tr *ngIf="payOption.bonoNoche">
       <td>Bono Noche</td>
       <td></td>
       <td>{{payRoll.bonoNocheMonto | cl:'currency'}}</td>
       <td></td>
     </tr>
-    <tr>
+    <tr *ngIf="payOption.bonoServicio">
       <td>Bono Servicio</td>
       <td></td>
       <td>{{payRoll.bonoServicioMonto | cl:'currency'}}</td>
       <td></td>
     </tr>
-    <tr>
+    <tr *ngIf="payOption.bonoOperaciones">
       <td>Bono Operaciones</td>
       <td></td>
       <td>{{payRoll.bonoOperacionesMonto | cl:'currency'}}</td>
       <td></td>
     </tr>
-    <tr>
+    <tr *ngIf="payOption.bonoReserve">
       <td>Bono Reserve</td>
       <td></td>
       <td>{{payRoll.bonoReserveMonto | cl:'currency'}}</td>
       <td></td>
     </tr>
-    <tr>
+    <tr *ngIf="payOption.bonoRequisitosEspeciales">
       <td>Tienda Requisitos Especiales</td>
       <td></td>
       <td>{{payRoll.bonoRequisitosEspecialesMonto | cl:'currency'}}</td>
       <td></td>
     </tr>
-    <tr>
+    <tr *ngIf="payOption.bonoAltoFlujo">
       <td>Bono Alto Flujo</td>
       <td></td>
       <td>{{payRoll.bonoAltoFlujoMonto | cl:'currency'}}</td>
       <td></td>
     </tr>
-    <tr>
+    <tr *ngIf="payOption.bonoPartner">
       <td>Bono Partner</td>
       <td></td>
       <td>{{payRoll.bonoPartnerMonto | cl:'currency'}}</td>
       <td></td>
     </tr>
-    <tr>
+    <tr *ngIf="payOption.bonoTrainer">
       <td>Bono Barista Trainer</td>
       <td></td>
       <td>{{payRoll.bonoTrainerMonto | cl:'currency'}}</td>
       <td></td>
     </tr>
-    <tr>
+    <tr *ngIf="payOption.bonoReferidos">
       <td>Bono Referidos</td>
       <td></td>
       <td>{{payRoll.bonoReferidosMonto | cl:'currency'}}</td>
       <td></td>
     </tr>
-    <tr>
+    <tr *ngIf="payOption.bonoSuplente">
       <td>Bono Suplente</td>
       <td>{{payOption.bonoSuplenteCantidad | cl:'decimal'}}</td>
       <td>{{payRoll.bonoSuplenteMonto | cl:'currency'}}</td>
       <td></td>
     </tr>
-    <tr>
+    <tr *ngIf="payOption.bonoFiestasPatrias">
       <td>Aguinaldo Fiestas Patrias</td>
       <td></td>
       <td>{{payRoll.bonoFiestasPatriasMonto | cl:'currency'}}</td>
       <td></td>
     </tr>
-    <tr>
+    <tr *ngIf="payOption.bonoOtro1 || payOption.bonoOtro2 || payOption.bonoOtro3">
       <td>Otro (Nombre)</td>
       <td></td>
       <td>{{payRoll.bonoOtrosMonto | cl:'currency'}}</td>
@@ -178,49 +176,49 @@
       <th></th>
       <th></th>
     </tr>
-    <tr>
+    <tr *ngIf="payOption.asignacionColacion">
       <td>Colación</td>
       <td></td>
       <td>{{payRoll.asignacionColacionMonto | cl:'currency'}}</td>
       <td></td>
     </tr>
-    <tr>
+    <tr *ngIf="payOption.asignacionMovilizacion">
       <td>Movilización</td>
       <td></td>
       <td>{{payRoll.asignacionMovilizacionMonto | cl:'currency'}}</td>
       <td></td>
     </tr>
-    <tr>
+    <tr *ngIf="payOption.asignacionTransporte">
       <td>Asignación Especial Movilización</td>
       <td></td>
       <td>{{payRoll.asignacionTransporteMonto | cl:'currency'}}</td>
       <td></td>
     </tr>
-    <tr>
+    <tr *ngIf="payOption.asignacionSalaCuna">
       <td>Asignación Sala Cuna</td>
       <td></td>
       <td>{{payRoll.asignacionSalaCunaMonto | cl:'currency'}}</td>
       <td></td>
     </tr>
-    <tr>
+    <tr *ngIf="payOption.asignacionOtra1">
       <td>Otra asignación 1</td>
       <td></td>
       <td>{{payRoll.asignacionOtro1Monto | cl:'currency'}}</td>
       <td></td>
     </tr>
-    <tr>
+    <tr *ngIf="payOption.asignacionOtra2">
       <td>Otra asignación 2</td>
       <td></td>
       <td>{{payRoll.asignacionOtro2Monto | cl:'currency'}}</td>
       <td></td>
     </tr>
-    <tr>
+    <tr *ngIf="payOption.asignacionCargas">
       <th>Asignaciones Familiares</th>
       <th></th>
       <th></th>
       <th></th>
     </tr>
-    <tr>
+    <tr *ngIf="payOption.asignacionCargas">
       <td>Asignaciones Familiares Simple</td>
       <td></td>
       <td>{{payRoll.asignacionCargasMonto | cl:'currency'}}</td>
@@ -262,55 +260,55 @@
       <th></th>
       <th></th>
     </tr>
-    <tr>
+    <tr *ngIf="payOption.cuotaSindical == 'si'">
       <td>Cuota Sindical</td>
       <td></td>
       <td></td>
       <td>{{payRoll.cuotaSindicalMonto | cl:'currency'}}</td>
     </tr>
-    <tr>
+    <tr *ngIf="payRoll.cuotaExtraordinariaMonto > 0 ">
       <td>Cuota Sindical Extraordinaria</td>
       <td></td>
       <td></td>
       <td>{{payRoll.cuotaExtraordinariaMonto | cl:'currency'}}</td>
     </tr>
-    <tr>
+    <tr *ngIf="payRoll.prestamosMonto > 0">
       <td>Préstamos CCAF</td>
       <td></td>
       <td></td>
       <td>{{payRoll.prestamosMonto | cl:'currency'}}</td>
     </tr>
-    <tr>
+    <tr *ngIf="payRoll.anticipioMonto > 0">
       <td>Anticipo de Sueldo</td>
       <td></td>
       <td></td>
       <td>{{payRoll.anticipioMonto | cl:'currency'}}</td>
     </tr>
-    <tr>
+    <tr *ngIf="payRoll.cuotaSeguroMonto > 0">
       <td>Seguro médico</td>
       <td></td>
       <td></td>
       <td>{{payRoll.cuotaSeguroMonto | cl:'currency'}}</td>
     </tr>
-    <tr>
+    <tr *ngIf="payRoll.descuentos1Monto > 0">
       <td>Otros descuentos por planilla 1</td>
       <td></td>
       <td></td>
       <td>{{payRoll.descuentos1Monto | cl:'currency'}}</td>
     </tr>
-    <tr>
+    <tr *ngIf="payRoll.descuentos2Monto > 0">
       <td>Otros descuentos por planilla 2</td>
       <td></td>
       <td></td>
       <td>{{payRoll.descuentos2Monto | cl:'currency'}}</td>
     </tr>
-    <tr>
+    <tr *ngIf="payRoll.descuentos3Monto > 0">
       <td>Otros descuentos por planilla 3</td>
       <td></td>
       <td></td>
       <td>{{payRoll.descuentos3Monto | cl:'currency'}}</td>
     </tr>
-    <tr>
+    <tr *ngIf="payRoll.ahorroMonto > 0">
       <td>Ahorro CCAF</td>
       <td></td>
       <td></td>
@@ -319,23 +317,20 @@
   </tbody>
   <tfoot>
     <tr>
-      <td>Totales</td>
-      <td></td>
-      <td>{{payRoll.totalHaberes + payRoll.totalHaberesOtros | cl:'currency'}}</td>
-      <td>{{payRoll.totalDescuentos + payRoll.totalDescuentosOtros | cl:'currency'}}</td>
+      <td colspan="2">Totales</td>
+      <td>{{payRoll.totalHaberes | cl:'currency'}}</td>
+      <td>{{payRoll.totalDescuentos | cl:'currency'}}</td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <div class="subtotal">Alcance liquido:&nbsp;&nbsp;{{payRoll.totalHaberes + payRoll.totalHaberesOtros - payRoll.totalDescuentos | cl:'currency'}}</div>
+        <div class="total">Liquido a pagar:&nbsp;&nbsp;{{payRoll.totalLiquido | cl:'currency'}}</div>
+      </td>
     </tr>
   </tfoot>
 </table>
 
-<table class="table-footer">
-  <tbody>
-    <tr>
-      <td>Alcance liquido</td>
-      <td>{{payRoll.totalHaberes + payRoll.totalHaberesOtros - payRoll.totalDescuentos | cl:'currency'}}</td>
-      <td>Liquido a pagar</td>
-      <td>{{payRoll.totalHaberes + payRoll.totalHaberesOtros - payRoll.totalDescuentos - payRoll.totalDescuentosOtros | cl:'currency'}}</td>
-    </tr>
-  </tbody>
-</table>
+  <button mat-raised-button (click)="getBack()">Volver</button>
+
 </div>
 </div>

@@ -3,9 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { PayOption } from '../pay-option';
 import { MessageService } from '../message.service';
 
-import { AngularFireDatabase } from 'angularfire2/database';
-import {map} from "rxjs/operators";
-
 @Component({
   selector: 'app-pay-form',
   templateUrl: './pay-form.component.html',
@@ -18,20 +15,23 @@ export class PayFormComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private message: MessageService,
-    private firebase: AngularFireDatabase
+    private message: MessageService
   ) {
-    this.http.get('./assets/initial-data.json').subscribe(data => {
+    this.http.get('https://pay-calc-patan.firebaseio.com/initial_data.json?print=pretty&format=export').subscribe(data => {
       this.initData = data;
-      console.log(data);
-    });
-    this.firebase.list('/init_data').valueChanges().subscribe(data => {
       console.log(data);
     });
   }
 
   ngOnInit() {
+    this.message.currentMessage.subscribe(data => {
+      if (data['action'] === 'back') {
+        this.enabled = true;
+      }
+    });
+
     // TEST 1
+    /*
     this.payOption.cargo = 'otro';
     this.payOption.jornada = '20';
     this.payOption.tienda = '16';
@@ -90,11 +90,26 @@ export class PayFormComponent implements OnInit {
     this.payOption.cuotaExtraordinaria3 = 5016;
     this.payOption.ahorro = 5017;
     this.payOption.descuentoHoras = 8;
+    */
   }
 
   getResult(): void {
     this.message.changeMessage(this.payOption);
     this.enabled = false;
+  }
+
+  getCheckForm(): boolean {
+    if (this.payOption.cargo != null && this.payOption.jornada != null && this.payOption.tienda != null && this.payOption.sueldo != null && this.payOption.afp != null &&
+      this.payOption.cargo !== '' && this.payOption.jornada !== '' && this.payOption.tienda !== '' && this.payOption.sueldo > 0) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
+  test(): void {
+    console.log(this.payOption);
   }
 
 

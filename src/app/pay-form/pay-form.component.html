@@ -5,19 +5,19 @@
         <ng-template matStepLabel>Información del Cargo</ng-template>
         <div class="step-container">
           <mat-form-field>
-            <mat-select placeholder="Cargo" [(value)]="payOption.cargo" name="cargo">
+            <mat-select placeholder="Cargo" [(value)]="payOption.cargo" name="cargo" required>
               <mat-option *ngFor="let item of initData.cargos | keyvalue" [value]="item.key">{{item.value}}</mat-option>
             </mat-select>
             <mat-hint align="start">Si tu cargo es Partner Coffee, selecciona Barista. Si trabajas en Support Center, selecciona la opción "Otro".</mat-hint>
           </mat-form-field>
           <mat-form-field>
-            <mat-select placeholder="Jornada laboral" [(value)]="payOption.jornada" name="jornada">
+            <mat-select placeholder="Jornada laboral" [(value)]="payOption.jornada" name="jornada" required>
               <mat-option *ngFor="let item of initData.jornadas | keyvalue" [value]="item.key">{{item.value}}</mat-option>
             </mat-select>
             <mat-hint align="start">Esta es la cantidad de horas que realizas por semana, sin considerar horas extraordinarias. Si tu cargo no contempla límite de jornada (Art. 22), por favor selecciona "45".</mat-hint>
           </mat-form-field>
           <mat-form-field>
-            <mat-select placeholder="Tienda" [(value)]="payOption.tienda" name="tienda">
+            <mat-select placeholder="Tienda" [(value)]="payOption.tienda" name="tienda" required>
               <mat-option *ngFor="let item of initData.tiendas | keyvalue" [value]="item.key">{{item.value}}</mat-option>
             </mat-select>
             <mat-hint align="start">Si trabajas en Support Center, selecciónalo entre las opciones.</mat-hint>
@@ -158,14 +158,14 @@
           </section>
           <section class="check-container">
             <mat-checkbox [(ngModel)]="payOption.asignacionCargas" name="asignacion-cargas">Cargas Familiares:</mat-checkbox>
-            <input matInput type="number" placeholder="Cantidad" maxlength="10" size="10" [(ngModel)]="payOption.asignacionCargasCantidad" name="asignacion-cargas-cantidad">
+            <input style="width:5rem !important;" matInput type="number" placeholder="Cantidad" maxlength="10" size="10" [(ngModel)]="payOption.asignacionCargasCantidad" name="asignacion-cargas-cantidad">
             <input matInput type="number" placeholder="Monto" maxlength="10" size="10" [(ngModel)]="payOption.asignacionCargasMonto" name="asignacion-cargas-monto">
           </section>
           <section class="check-container">
             <mat-checkbox [(ngModel)]="payOption.asignacionTransporte" name="asignacion-transporte">Asignación Especial de Transporte</mat-checkbox>
             <input matInput type="number" placeholder="Monto" [(ngModel)]="payOption.asignacionTransporteMonto" name="asignacion-transporte-monto">
           </section>
-          <mat-hint align="start">(mamás, trabajadores/as de Aeropuerto, etc).</mat-hint>
+          <mat-hint align="start" style="font-size: 75%; margin-top: -8px;">(mamás, trabajadores/as de Aeropuerto, etc).</mat-hint>
           <section class="check-container">
             <mat-checkbox [(ngModel)]="payOption.asignacionSalaCuna" name="asignacion-sala-cuna">Asignación Sala Cuna (cuidadora)</mat-checkbox>
           </section>
@@ -191,7 +191,7 @@
         <div class="step-container">
           <section class="field-container">
             <h2>¿A qué AFP estás afiliado?</h2>
-            <mat-radio-group [(value)]="payOption.afp" name="afp">
+            <mat-radio-group [(ngModel)]="payOption.afp" [(value)]="payOption.afp" name="afp" required>
               <mat-radio-button *ngFor="let item of initData.afps | keyvalue" [value]="item.key">{{item.value}}</mat-radio-button>
             </mat-radio-group>
             <hr noshade/>
@@ -242,7 +242,8 @@
         </div>
         <div class="btn-container">
           <button mat-raised-button matStepperPrevious>Atras</button>
-          <button mat-raised-button (click)="getResult()">Enviar</button>
+          <button *ngIf="getCheckForm()" mat-raised-button (click)="getResult()">Enviar</button>
+          <button *ngIf="!getCheckForm()" mat-raised-button disabled>Enviar</button>
         </div>
       </form>
     </mat-step>

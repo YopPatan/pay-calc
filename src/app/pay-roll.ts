@@ -1,8 +1,11 @@
 export class PayRoll {
-  totalHaberes: number;
+  totalHaberesImponibles: number;
   totalHaberesOtros: number;
-  totalDescuentos: number;
+  totalHaberes: number;
+  totalDescuentosLegales: number;
   totalDescuentosOtros: number;
+  totalDescuentos: number;
+  totalLiquido: number;
 
   diasTrabajos: number;
   sueldo: number;
@@ -59,11 +62,11 @@ export class PayRoll {
       this.bonoReserveMonto +
       this.bonoRequisitosEspecialesMonto +
       this.bonoAltoFlujoMonto +
-      this.bonoPartnerMonto +
+      //this.bonoPartnerMonto +
       this.bonoTrainerMonto +
       this.bonoReferidosMonto +
       this.bonoSuplenteMonto +
-      this.bonoFiestasPatriasMonto +
+      //this.bonoFiestasPatriasMonto +
       this.bonoOtrosMonto +
       this.gratificacionMonto;
   }
@@ -75,7 +78,9 @@ export class PayRoll {
       this.asignacionSalaCunaMonto +
       this.asignacionOtro1Monto +
       this.asignacionOtro2Monto +
-      this.asignacionCargasMonto;
+      this.asignacionCargasMonto +
+      this.bonoFiestasPatriasMonto +
+      this.bonoPartnerMonto;
   }
 
   getTotalDescuentos(): number {

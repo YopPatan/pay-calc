@@ -12,7 +12,7 @@ import { PayRollComponent } from './pay-roll/pay-roll.component';
 import { NumberClPipe } from './number-cl.pipe';
 
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { environment } from '../environments/environment';
 
 @NgModule({
@@ -24,7 +24,7 @@ import { environment } from '../environments/environment';
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule,
+    AngularFirestoreModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
