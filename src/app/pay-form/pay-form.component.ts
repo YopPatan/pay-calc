@@ -3,6 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { PayOption } from '../pay-option';
 import { MessageService } from '../message.service';
 
+import { AngularFireDatabase } from 'angularfire2/database';
+import {map} from "rxjs/operators";
+
 @Component({
   selector: 'app-pay-form',
   templateUrl: './pay-form.component.html',
@@ -15,10 +18,14 @@ export class PayFormComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private message: MessageService
+    private message: MessageService,
+    private firebase: AngularFireDatabase
   ) {
     this.http.get('./assets/initial-data.json').subscribe(data => {
       this.initData = data;
+      console.log(data);
+    });
+    this.firebase.list('/init_data').valueChanges().subscribe(data => {
       console.log(data);
     });
   }

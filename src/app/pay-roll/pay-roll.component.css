@@ -1,11 +1,27 @@
 table {
   width: 100%;
   border-collapse: collapse;
-  border: 1px solid #888;
-  margin-bottom: 1rem;
+/*  margin-bottom: 1rem;*/
 }
 
-td, th {
+.info {
+  border-radius: 5px;
+  border: 1px solid #555;
+  font-size: 0.8rem;
+  padding: 5px;
+}
+
+.mini {
+  font-size: 0.65rem;
+}
+
+.table-review {
+  /*margin-bottom: 1rem;*/
+  border: 1px solid #555;
+}
+
+.table-review td,
+.table-review th {
   /*font-family: Roboto,"Helvetica Neue",sans-serif;*/
   font-size: 0.9rem;
   font-weight: 400;
@@ -13,21 +29,21 @@ td, th {
   padding : 0.2rem;
 }
 
-thead td {
+.table-review thead td {
   background-color: #bbb;
 }
 
-thead th {
+.table-review thead th {
   text-align: left;
   font-weight: bold;
 }
 
-tbody th {
+.table-review tbody th {
   text-align: left;
   font-weight: bold;
 }
 
-tfoot td {
+.table-review tfoot td {
   text-align: left;
   background-color: #bbb;
 }

@@ -11,6 +11,10 @@ import { MatInputModule, MatButtonModule, MatSelectModule, MatCheckboxModule, Ma
 import { PayRollComponent } from './pay-roll/pay-roll.component';
 import { NumberClPipe } from './number-cl.pipe';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { environment } from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,6 +23,8 @@ import { NumberClPipe } from './number-cl.pipe';
     NumberClPipe
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
