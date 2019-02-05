@@ -18,6 +18,8 @@ export class PayRollComponent implements OnInit {
   initAmounts: any;
   initData: any;
   enabled: boolean = false;
+  today = new Date();
+  months: string[] = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
 
   constructor(
     private http: HttpClient,

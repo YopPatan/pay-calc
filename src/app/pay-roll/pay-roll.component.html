@@ -12,8 +12,8 @@
     </div>
     <div>&nbsp;&nbsp;</div>
     <div>
-      <div class="mini">Liquidacion de: 06/2017</div>
-      <div>Junio de 2017</div>
+      <div class="mini">Liquidacion de: {{(today.getMonth() + 1) | number:'2.0-0'}}-{{today.getFullYear()}}</div>
+      <div>{{months[today.getMonth()]}} de {{today.getFullYear()}}</div>
     </div>
   </div>
 

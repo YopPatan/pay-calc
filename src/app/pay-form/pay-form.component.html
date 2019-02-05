@@ -216,7 +216,7 @@
           </mat-form-field>
           <section class="field-container">
             <h2>¿Estás sindicalizado?</h2>
-            <mat-radio-group [(value)]="payOption.cuotaSindical" name="cuota-sindical">
+            <mat-radio-group [(ngModel)]="payOption.cuotaSindical" [(value)]="payOption.cuotaSindical" name="cuota-sindical">
               <mat-radio-button value="si">Si</mat-radio-button>
               <mat-radio-button value="no">No</mat-radio-button>
             </mat-radio-group>
