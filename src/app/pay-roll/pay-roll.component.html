@@ -71,7 +71,7 @@
     <tr *ngIf="payRoll.descuentoHorasMonto > 0">
       <td>Descuento Horas No Trabajadas</td>
       <td>{{payOption.descuentoHoras | cl:'decimal'}}</td>
-      <td>{{payRoll.descuentoHorasMonto | cl:'currency'}}</td>
+      <td>-{{payRoll.descuentoHorasMonto | cl:'currency'}}</td>
       <td></td>
     </tr>
     <tr *ngIf="payRoll.horasExtrasMonto > 0">
@@ -189,7 +189,7 @@
       <td></td>
     </tr>
     <tr *ngIf="payOption.asignacionTransporte">
-      <td>Asignación Especial Movilización</td>
+      <td>Asignación Especial de Movilización</td>
       <td></td>
       <td>{{payRoll.asignacionTransporteMonto | cl:'currency'}}</td>
       <td></td>

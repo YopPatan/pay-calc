@@ -28,18 +28,19 @@ export class PayRollComponent implements OnInit {
   ) {
     this.http.get('https://pay-calc-patan.firebaseio.com/initial_amounts.json?print=pretty&format=export').subscribe(data => {
       this.initAmounts = data;
-      console.log(data);
+      //console.log(data);
     });
     this.http.get('https://pay-calc-patan.firebaseio.com/initial_data.json?print=pretty&format=export').subscribe(data => {
       this.initData = data;
-      console.log(data);
+      //console.log(data);
     });
   }
 
   ngOnInit() {
     this.message.currentMessage.subscribe(data => {
       if (data['sueldo'] != null) {
-        console.log(data);
+        //console.log(data);
+
         this.payOption = data as PayOption;
 
         this.payRoll.diasTrabajos = 30 - this.val(this.payOption.ausenciasJustificadas) - this.val(this.payOption.ausenciasInjustificadas);
@@ -64,16 +65,11 @@ export class PayRollComponent implements OnInit {
           (this.getInitAmounts('bonoRequisitosEspeciales') / 30) * this.payRoll.diasTrabajos : 0;
         this.payRoll.bonoAltoFlujoMonto = (this.payOption.bonoAltoFlujo) ?
           (this.getInitAmounts('bonoAltoFlujo') / 30) * this.payRoll.diasTrabajos : 0;
-        this.payRoll.bonoFiestasPatriasMonto = (this.payOption.bonoFiestasPatrias) ?
-          (this.getInitAmounts('bonoFiestasPatrias')) : 0;
         this.payRoll.bonoTrainerMonto = (this.payOption.bonoTrainer) ?
           (this.getInitAmounts('bonoTrainer') * this.val(this.payOption.bonoTrainerCantidad)) : 0;
         this.payRoll.bonoReferidosMonto =
           ((this.payOption.bonoReferidos3) ? this.getInitAmounts('bonoReferidos3') * this.val(this.payOption.bonoReferidos3Cantidad) : 0 ) +
           ((this.payOption.bonoReferidos9) ? this.getInitAmounts('bonoReferidos9') * this.val(this.payOption.bonoReferidos9Cantidad) : 0);
-        this.payRoll.bonoPartnerMonto =
-          ((this.payOption.bonoPartnerAnnoActual) ? this.val(this.payOption.bonoPartnerAnnoActualMonto) : 0) +
-          ((this.payOption.bonoPartnerAnnoAnterior) ? this.val(this.payOption.bonoPartnerAnnoAnteriorMonto) : 0);
         this.payRoll.bonoSuplenteMonto = (this.payOption.bonoSuplente) ?
           (this.val(this.payOption.bonoSuplenteCantidad) * 720) : 0;
         this.payRoll.bonoOtrosMonto =
@@ -81,14 +77,22 @@ export class PayRollComponent implements OnInit {
           ((this.payOption.bonoOtro2) ? this.val(this.payOption.bonoOtro2Monto) : 0) +
           ((this.payOption.bonoOtro3) ? this.val(this.payOption.bonoOtro3Monto) : 0);
 
-        console.log('gratificaicon opcion 1: ' + (this.getInitAmounts('immNacional') * 4.75) / 12);
-        console.log('gratificaicon opcion 2: ' + this.payRoll.getTotalHaberes() * 0.25);
-        console.log('total haberes sin gratificacion: ' + this.payRoll.getTotalHaberes());
+        //console.log('gratificacion opcion 1: ' + (this.getInitAmounts('immNacional') * 4.75) / 12);
+        //console.log('gratificacion opcion 2: ' + this.payRoll.getTotalHaberes() * 0.25);
+        //console.log('total haberes sin gratificacion: ' + this.payRoll.getTotalHaberes());
 
+        // Gratificacion
         this.payRoll.gratificacionMonto = ((this.getInitAmounts('immNacional') * 4.75) / 12 < this.payRoll.getTotalHaberes() * 0.25) ?
           ((this.getInitAmounts('immNacional') * 4.75) / 12) : (this.payRoll.getTotalHaberes() * 0.25);
 
-        console.log('total haberes: ' + this.payRoll.getTotalHaberes());
+        // Bono FiestasPatrias y Bono Partner
+        this.payRoll.bonoFiestasPatriasMonto = (this.payOption.bonoFiestasPatrias) ?
+          (this.getInitAmounts('bonoFiestasPatrias')) : 0;
+        this.payRoll.bonoPartnerMonto =
+          ((this.payOption.bonoPartnerAnnoActual) ? this.val(this.payOption.bonoPartnerAnnoActualMonto) : 0) +
+          ((this.payOption.bonoPartnerAnnoAnterior) ? this.val(this.payOption.bonoPartnerAnnoAnteriorMonto) : 0);
+
+        //console.log('total haberes: ' + this.payRoll.getTotalHaberes());
 
         // Otros Haberes
         this.payRoll.asignacionColacionMonto = (this.payOption.asignacionColacion) ?
@@ -106,11 +110,13 @@ export class PayRollComponent implements OnInit {
         this.payRoll.asignacionCargasMonto = (this.payOption.asignacionCargas) ?
           (this.val(this.payOption.asignacionCargasMonto) * this.val(this.payOption.asignacionCargasCantidad)) : 0;
 
+        // Total Haberes
         this.payRoll.totalHaberesImponibles = this.payRoll.getTotalHaberes();
         this.payRoll.totalHaberesOtros = this.payRoll.getTotalHaberesOtros();
 
         // Descuentos
-        console.log('afp: ' + this.getInitAmounts('afps'));
+        //console.log('afp: ' + this.getInitAmounts('afps'));
+
         this.payRoll.afpMonto = (this.getInitAmounts('afps') / 100) * this.payRoll.totalHaberesImponibles;
         this.payRoll.isapreMonto = (this.getInitAmounts('isapre') / 100) * this.payRoll.totalHaberesImponibles;
         this.payRoll.seguroCesantiaMonto = (this.getInitAmounts('seguroCesantia') / 100) * this.payRoll.totalHaberesImponibles;
@@ -126,6 +132,7 @@ export class PayRollComponent implements OnInit {
         this.payRoll.descuentos3Monto = this.val(this.payOption.descuentos3);
         this.payRoll.ahorroMonto = this.val(this.payOption.ahorro);
 
+        // Totales
         this.payRoll.totalDescuentosLegales = this.payRoll.getTotalDescuentos();
         this.payRoll.totalDescuentosOtros = this.payRoll.getTotalDescuentosOtros();
         this.payRoll.totalHaberes = this.payRoll.totalHaberesImponibles + this.payRoll.totalHaberesOtros;
@@ -141,7 +148,7 @@ export class PayRollComponent implements OnInit {
         });
         */
 
-        console.log(this.payRoll);
+        //console.log(this.payRoll);
       }
     });
   }

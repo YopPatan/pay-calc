@@ -18,7 +18,7 @@
           </mat-form-field>
           <mat-form-field>
             <mat-select placeholder="Tienda" [(value)]="payOption.tienda" name="tienda" required>
-              <mat-option *ngFor="let item of initData.tiendas | keyvalue" [value]="item.key">{{item.value}}</mat-option>
+              <mat-option *ngFor="let item of initData.tiendas" [value]="item[0]">{{item[1]}}</mat-option>
             </mat-select>
             <mat-hint align="start">Si trabajas en Support Center, selecciónalo entre las opciones.</mat-hint>
           </mat-form-field>
@@ -162,7 +162,7 @@
             <input matInput type="number" placeholder="Monto" maxlength="10" size="10" [(ngModel)]="payOption.asignacionCargasMonto" name="asignacion-cargas-monto">
           </section>
           <section class="check-container">
-            <mat-checkbox [(ngModel)]="payOption.asignacionTransporte" name="asignacion-transporte">Asignación Especial de Transporte</mat-checkbox>
+            <mat-checkbox [(ngModel)]="payOption.asignacionTransporte" name="asignacion-transporte">Asignación Especial de Movilización</mat-checkbox>
             <input matInput type="number" placeholder="Monto" [(ngModel)]="payOption.asignacionTransporteMonto" name="asignacion-transporte-monto">
           </section>
           <mat-hint align="start" style="font-size: 75%; margin-top: -8px;">(mamás, trabajadores/as de Aeropuerto, etc).</mat-hint>
@@ -210,10 +210,11 @@
             <input matInput type="number" placeholder="Total Descuento 3" [(ngModel)]="payOption.descuentos3" name="descuento-3">
             <hr noshade/>
           </section>
-          <mat-form-field>
-            <input matInput placeholder="¿Tienes el seguro médico Vida Security?" [(ngModel)]="payOption.cuotaSeguro" name="cuota-seguro">
-            <mat-hint align="start">Ingresa el total de la cuota.</mat-hint>
-          </mat-form-field>
+          <section class="field-container">
+            <h2>¿Tienes el seguro médico Vida Security?</h2>
+            <input matInput type="number" placeholder="Poner total de la cuota" [(ngModel)]="payOption.cuotaSeguro" name="cuota-seguro">
+            <hr noshade/>
+          </section>
           <section class="field-container">
             <h2>¿Estás sindicalizado?</h2>
             <mat-radio-group [(ngModel)]="payOption.cuotaSindical" [(value)]="payOption.cuotaSindical" name="cuota-sindical">
@@ -221,9 +222,8 @@
               <mat-radio-button value="no">No</mat-radio-button>
             </mat-radio-group>
             <hr noshade/>
-            <small>Si pone sí, debe consultarse por Cuota extraordinaria, debiendo escribirse el monto manualmente.</small>
           </section>
-          <section class="field-container">
+          <section class="field-container" *ngIf="payOption.cuotaSindical==='si'">
             <h2>¿Tienes algúna cuota sindical extraordinaria?</h2>
             <input matInput type="number" placeholder="Total Cuota Extraordinaria 1" [(ngModel)]="payOption.cuotaExtraordinaria1" name="cuota-extraordinaria-1">
             <input matInput type="number" placeholder="Total Cuota Extraordinaria 2" [(ngModel)]="payOption.cuotaExtraordinaria2" name="cuota-extraordinaria-2">

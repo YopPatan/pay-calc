@@ -21,12 +21,12 @@ export class PayRoll {
   bonoReserveMonto: number;
   bonoRequisitosEspecialesMonto: number;
   bonoAltoFlujoMonto: number;
-  bonoPartnerMonto: number;
   bonoTrainerMonto: number;
   bonoReferidosMonto: number;
   bonoSuplenteMonto: number;
-  bonoFiestasPatriasMonto: number;
   bonoOtrosMonto: number;
+  bonoFiestasPatriasMonto: number = 0;
+  bonoPartnerMonto: number = 0;
   gratificacionMonto: number = 0;
 
   asignacionColacionMonto: number ;
@@ -51,7 +51,7 @@ export class PayRoll {
   ahorroMonto: number;
 
   getTotalHaberes(): number {
-    return this.sueldo +
+    return this.sueldo -
       this.descuentoHorasMonto +
       this.horasExtrasMonto +
       this.recargoDomingosMonto +
@@ -62,12 +62,12 @@ export class PayRoll {
       this.bonoReserveMonto +
       this.bonoRequisitosEspecialesMonto +
       this.bonoAltoFlujoMonto +
-      //this.bonoPartnerMonto +
       this.bonoTrainerMonto +
       this.bonoReferidosMonto +
       this.bonoSuplenteMonto +
-      //this.bonoFiestasPatriasMonto +
       this.bonoOtrosMonto +
+      this.bonoFiestasPatriasMonto +
+      this.bonoPartnerMonto +
       this.gratificacionMonto;
   }
 
@@ -78,9 +78,7 @@ export class PayRoll {
       this.asignacionSalaCunaMonto +
       this.asignacionOtro1Monto +
       this.asignacionOtro2Monto +
-      this.asignacionCargasMonto +
-      this.bonoFiestasPatriasMonto +
-      this.bonoPartnerMonto;
+      this.asignacionCargasMonto;
   }
 
   getTotalDescuentos(): number {
