@@ -14,7 +14,7 @@ import { AngularFirestore } from 'angularfire2/firestore';
 export class PayRollComponent implements OnInit {
 
   payOption: PayOption = new PayOption();
-  payRoll: PayRoll = new PayRoll();
+  payRoll: PayRoll;
   initAmounts: any;
   initData: any;
   enabled: boolean = false;
@@ -43,6 +43,8 @@ export class PayRollComponent implements OnInit {
 
         this.payOption = data as PayOption;
 
+        this.payRoll = new PayRoll();
+
         this.payRoll.diasTrabajos = 30 - this.val(this.payOption.ausenciasJustificadas) - this.val(this.payOption.ausenciasInjustificadas);
         this.payRoll.sueldo = (this.payOption.sueldo / 30) * this.payRoll.diasTrabajos;
         this.payRoll.valorHora = ((this.payOption.sueldo / 30) * 7) / parseInt(this.payOption.jornada);
@@ -69,7 +71,7 @@ export class PayRollComponent implements OnInit {
           (this.getInitAmounts('bonoTrainer') * this.val(this.payOption.bonoTrainerCantidad)) : 0;
         this.payRoll.bonoReferidosMonto =
           ((this.payOption.bonoReferidos3) ? this.getInitAmounts('bonoReferidos3') * this.val(this.payOption.bonoReferidos3Cantidad) : 0 ) +
-          ((this.payOption.bonoReferidos9) ? this.getInitAmounts('bonoReferidos9') * this.val(this.payOption.bonoReferidos9Cantidad) : 0);
+          ((this.payOption.bonoReferidos12) ? this.getInitAmounts('bonoReferidos12') * this.val(this.payOption.bonoReferidos12Cantidad) : 0);
         this.payRoll.bonoSuplenteMonto = (this.payOption.bonoSuplente) ?
           (this.val(this.payOption.bonoSuplenteCantidad) * 720) : 0;
         this.payRoll.bonoOtrosMonto =

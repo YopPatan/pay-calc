@@ -25,8 +25,8 @@ export class PayOption {
   bonoReferidos: boolean;
   bonoReferidos3: boolean;
   bonoReferidos3Cantidad: number;
-  bonoReferidos9: boolean;
-  bonoReferidos9Cantidad: number;
+  bonoReferidos12: boolean;
+  bonoReferidos12Cantidad: number;
   bonoPartner: boolean;
   bonoPartnerAnnoAnterior: boolean;
   bonoPartnerAnnoAnteriorMonto: number;

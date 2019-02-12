@@ -75,10 +75,10 @@
             <mat-checkbox [(ngModel)]="payOption.bonoServicio" name="bono-servicio">Bono Servicio</mat-checkbox>
           </section>
           <section class="check-container indent-container">
-            <mat-checkbox [(ngModel)]="payOption.bonoServicio50" name="bono-servicio-50">50%</mat-checkbox>
+            <mat-checkbox [(ngModel)]="payOption.bonoServicio50" [disabled]="payOption.bonoServicio100" name="bono-servicio-50">50%</mat-checkbox>
           </section>
           <section class="check-container indent-container">
-            <mat-checkbox [(ngModel)]="payOption.bonoServicio100" name="bono-servicio-100">100%</mat-checkbox>
+            <mat-checkbox [(ngModel)]="payOption.bonoServicio100" [disabled]="payOption.bonoServicio50" name="bono-servicio-100">100%</mat-checkbox>
           </section>
           <section class="check-container">
             <mat-checkbox [(ngModel)]="payOption.bonoFiestasPatrias" name="bono-fiestas-patrias">Aguinaldo de Fiestas Patrias</mat-checkbox>
@@ -104,11 +104,11 @@
             <mat-checkbox [(ngModel)]="payOption.bonoReferidos" name="bono-referidos">Bono Referidos</mat-checkbox>
           </section>
           <section class="check-container indent-container">
-            <mat-checkbox [(ngModel)]="payOption.bonoReferidos3" name="bono-referidos-3">3 y 5 meses:</mat-checkbox>
+            <mat-checkbox [(ngModel)]="payOption.bonoReferidos3" name="bono-referidos-3">3 y 9 meses:</mat-checkbox>
             <input matInput type="number" placeholder="Cantidad" [(ngModel)]="payOption.bonoReferidos3Cantidad" name="bono-referidos-3-cantidad">
           </section>
           <section class="check-container indent-container">
-            <mat-checkbox [(ngModel)]="payOption.bonoReferidos9" name="bono-referidos-9">9 meses:</mat-checkbox>
+            <mat-checkbox [(ngModel)]="payOption.bonoReferidos9" name="bono-referidos-12">12 meses:</mat-checkbox>
             <input matInput type="number" placeholder="Cantidad" [(ngModel)]="payOption.bonoReferidos9Cantidad" name="bono-referidos-9-cantidad">
           </section>
           <section class="check-container">
